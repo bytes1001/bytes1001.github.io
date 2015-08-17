@@ -2,6 +2,11 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://bytes1001.github.io/about/index.html</loc>
+    <lastmod>2015-08-17T02:28:33.912Z</lastmod>
+  </url>
+  
+  <url>
     <loc>http://bytes1001.github.io/2015/08/15/dispose/</loc>
     <lastmod>2015-08-17T01:55:30.853Z</lastmod>
   </url>
@@ -22,11 +27,6 @@
   </url>
   
   <url>
-    <loc>http://bytes1001.github.io/2015/08/14/helloworld/</loc>
-    <lastmod>2015-08-13T16:38:07.604Z</lastmod>
-  </url>
-  
-  <url>
     <loc>http://bytes1001.github.io/tags/index.html</loc>
     <lastmod>2015-08-13T09:31:29.029Z</lastmod>
   </url>
@@ -34,11 +34,6 @@
   <url>
     <loc>http://bytes1001.github.io/categories/index.html</loc>
     <lastmod>2015-08-13T09:28:42.508Z</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://bytes1001.github.io/about/index.html</loc>
-    <lastmod>2015-08-13T09:01:35.950Z</lastmod>
   </url>
   
 </urlset>

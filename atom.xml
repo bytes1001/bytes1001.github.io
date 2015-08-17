@@ -118,26 +118,4 @@
     
   </entry>
   
-  <entry>
-    <title><![CDATA[hello world!]]></title>
-    <link href="http://bytes1001.github.io/2015/08/14/helloworld/"/>
-    <id>http://bytes1001.github.io/2015/08/14/helloworld/</id>
-    <published>2015-08-13T16:20:31.000Z</published>
-    <updated>2015-08-13T16:38:07.604Z</updated>
-    <content type="html"><![CDATA[<p>hi.这是我在github上开的blog，致力于记录个人的编程生涯，学习与分享。</p>
-<p>所用到的技术概览：<br>nodejs<br>hexo<br>git<br>github<br>freemind theme [主题功能]<br>duoshuo [评论功能]<br>busuanzi[浏览量功能]<br>baidu_tongji [百度分析]</p>
-<p>几百年前，牛顿被苹果砸中而发现重力。今天，我吃着苹果，与你分享idea。</p>
-<p>欢迎访问，各种交流切磋！</p>
-]]></content>
-    <summary type="html">
-    <![CDATA[<p>hi.这是我在github上开的blog，致力于记录个人的编程生涯，学习与分享。</p>
-<p>所用到的技术概览：<br>nodejs<br>hexo<br>git<br>github<br>freemind theme [主题功能]<br>duoshuo [评论功能]<b]]>
-    </summary>
-    
-      <category term="Home" scheme="http://bytes1001.github.io/tags/Home/"/>
-    
-      <category term="Home" scheme="http://bytes1001.github.io/categories/Home/"/>
-    
-  </entry>
-  
 </feed>
