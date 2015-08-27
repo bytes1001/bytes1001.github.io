@@ -1,0 +1,343 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>第 2 页 | bytes1001</title>
+  <meta name="author" content="bytes1001">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  
+  <meta property="og:site_name" content="bytes1001"/>
+
+  
+    <meta property="og:image" content="undefined"/>
+  
+
+  
+    <link rel="alternative" href="/atom.xml" title="bytes1001" type="application/atom+xml">
+  
+  
+    <link href="/favicon.png" rel="icon">
+  
+  
+  <link rel="stylesheet" href="/css/bootstrap.min.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/font-awesome.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/highlight.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/google-fonts.css" media="screen" type="text/css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+
+  <script src="/js/jquery-2.0.3.min.js"></script>
+
+  <!-- analytics -->
+  
+
+
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?9fa039175166f0b0f6d5d0bcfe1fd18b";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+</head>
+
+ <body>  
+  <nav id="main-nav" class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container">
+      <button type="button" class="navbar-header navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+		<span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+	  <a class="navbar-brand" href="/">bytes1001</a>
+      <div class="collapse navbar-collapse nav-menu">
+		<ul class="nav navbar-nav">
+		  
+		  <li>
+			<a href="/archives" title="All the articles.">
+			  <i class="fa fa-archive"></i>Archives
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/categories" title="All the categories.">
+			  <i class="fa fa-folder"></i>Categories
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/tags" title="All the tags.">
+			  <i class="fa fa-tags"></i>Tags
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/about" title="About me.">
+			  <i class="fa fa-user"></i>About
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/atom.xml" title="RSS">
+			  <i class="fa fa-rss-square"></i>RSS
+			</a>
+		  </li>
+		  
+		</ul>
+		
+      </div>
+    </div> <!-- container -->
+</nav>
+<div class="clearfix"></div>
+
+  <div class="container">
+  	<div class="content">
+    	 <div class="page-header">
+  <h1>coding</h1>
+</div>
+
+<div class="row page">
+
+	
+	<div class="col-md-9">
+	
+
+		<div class="slogan">
+      <i class="fa fa-heart"></i>
+      stay hungry,stay foolish
+</div>    
+
+		<div class="mypage">
+		
+		<!-- title and entry -->
+		
+			
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2015-08-17 </div>
+			<div class="article-title"><a href="/2015/08/17/ienumerator/" >IEnumerator &amp;IEnumerable</a></div>						
+		</h3>
+	
+
+
+			<div class="entry">
+  <div class="row">
+  
+	<div class="col-md-12">
+	  
+	
+	  <p>先看看<strong>IEnumerator</strong> 和<strong>IEnumerable</strong>的接口定义:</p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">using</span> System.Runtime.InteropServices;</span><br><span class="line"><span class="keyword">namespace</span> <span class="title">System.Collections</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment">// 摘要:</span></span><br><span class="line">    <span class="comment">//     公开枚举数，该枚举数支持在非泛型集合上进行简单迭代。</span></span><br><span class="line">    [ComVisible(<span class="keyword">true</span>)]</span><br><span class="line">    [Guid(<span class="string">"496B0ABE-CDEE-11d3-88E8-00902754C43A"</span>)]</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">interface</span> <span class="title">IEnumerable</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="comment">// 摘要:</span></span><br><span class="line">        <span class="comment">//     返回一个循环访问集合的枚举数。</span></span><br><span class="line">        <span class="comment">//</span></span><br><span class="line">        <span class="comment">// 返回结果:</span></span><br><span class="line">        <span class="comment">//     一个可用于循环访问集合的 System.Collections.IEnumerator 对象。</span></span><br><span class="line">        [DispId(-<span class="number">4</span>)]</span><br><span class="line">        <span class="function">IEnumerator <span class="title">GetEnumerator</span>(<span class="params"></span>)</span>;</span><br><span class="line">    &#125;</span><br><span class="line"> </span><br><span class="line">    <span class="comment">// 摘要:</span></span><br><span class="line">    <span class="comment">//     支持对非泛型集合的简单迭代。</span></span><br><span class="line">    [ComVisible(<span class="keyword">true</span>)]</span><br><span class="line">    [Guid(<span class="string">"496B0ABF-CDEE-11d3-88E8-00902754C43A"</span>)]</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">interface</span> <span class="title">IEnumerator</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="comment">// 摘要:</span></span><br><span class="line">        <span class="comment">//     获取集合中的当前元素。</span></span><br><span class="line">        <span class="comment">//</span></span><br><span class="line">        <span class="comment">// 返回结果:</span></span><br><span class="line">        <span class="comment">//     集合中的当前元素。</span></span><br><span class="line">        <span class="keyword">object</span> Current &#123; <span class="keyword">get</span>; &#125;</span><br><span class="line">        <span class="comment">// 摘要:</span></span><br><span class="line">        <span class="comment">//     将枚举数推进到集合的下一个元素。</span></span><br><span class="line">        <span class="comment">//</span></span><br><span class="line">        <span class="comment">// 返回结果:</span></span><br><span class="line">        <span class="comment">//     如果枚举数成功地推进到下一个元素，则为 true；如果枚举数越过集合的结尾，则为 false。</span></span><br><span class="line">        <span class="comment">//</span></span><br><span class="line">        <span class="comment">// 异常:</span></span><br><span class="line">        <span class="comment">//   System.InvalidOperationException:</span></span><br><span class="line">        <span class="comment">//     在创建了枚举数后集合被修改了。</span></span><br><span class="line">        <span class="function"><span class="keyword">bool</span> <span class="title">MoveNext</span>(<span class="params"></span>)</span>;</span><br><span class="line">        <span class="comment">//</span></span><br><span class="line">        <span class="comment">// 摘要:</span></span><br><span class="line">        <span class="comment">//     将枚举数设置为其初始位置，该位置位于集合中第一个元素之前。</span></span><br><span class="line">        <span class="comment">//</span></span><br><span class="line">        <span class="comment">// 异常:</span></span><br><span class="line">        <span class="comment">//   System.InvalidOperationException:</span></span><br><span class="line">        <span class="comment">//     在创建了枚举数后集合被修改了。</span></span><br><span class="line">        <span class="function"><span class="keyword">void</span> <span class="title">Reset</span>(<span class="params"></span>)</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>三种迭代集合的方式</strong></p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Test</span>(<span class="params"></span>)</span><br><span class="line"></span>&#123;</span><br><span class="line">    <span class="keyword">var</span> list = <span class="keyword">new</span> List&lt;<span class="keyword">int</span>&gt; &#123; <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span> &#125;;</span><br><span class="line">    <span class="keyword">var</span> en = list.GetEnumerator();</span><br><span class="line">    <span class="keyword">while</span> (en.MoveNext())</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">int</span> a = en.Current;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">foreach</span> (<span class="keyword">var</span> item <span class="keyword">in</span> list)<span class="comment">//</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">int</span> a = item;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; list.Count; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">int</span> a = list[i];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>foreach 和 for 都可以迭代枚举集合中的元素。foreach是对象迭代器，语法更简洁，它要求list实现IEnumerable 接口的GetEnumerator方法。</p>
+<p><strong>自定义一个集合类型</strong><br><figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">namespace</span> <span class="title">MyCarIEnumerator</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">class</span> <span class="title">Garage</span>:<span class="title">IEnumerable</span></span><br><span class="line">    &#123;</span><br><span class="line">        Car[] carArray = <span class="keyword">new</span> Car[<span class="number">4</span>];</span><br><span class="line">        <span class="comment">//启动时填充一些Car对象</span></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="title">Garage</span>(<span class="params"></span>)</span><br><span class="line">        </span>&#123;</span><br><span class="line">            carArray[<span class="number">0</span>] = <span class="keyword">new</span> Car(<span class="string">"Rusty"</span>, <span class="number">30</span>);</span><br><span class="line">            carArray[<span class="number">1</span>] = <span class="keyword">new</span> Car(<span class="string">"Clunker"</span>, <span class="number">50</span>);</span><br><span class="line">            carArray[<span class="number">2</span>] = <span class="keyword">new</span> Car(<span class="string">"Zippy"</span>, <span class="number">30</span>);</span><br><span class="line">            carArray[<span class="number">3</span>] = <span class="keyword">new</span> Car(<span class="string">"Fred"</span>, <span class="number">45</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="function"><span class="keyword">public</span> IEnumerator <span class="title">GetEnumerator</span>(<span class="params"></span>)</span><br><span class="line">        </span>&#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">this</span>.carArray.GetEnumerator();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//修改Garage类型之后，就可以在C#foreach结构中安全使用该类型了。</span></span><br><span class="line"> </span><br><span class="line"><span class="comment">//除此之外，GetEnumerator()被定义为公开的，对象用户可以与IEnumerator类型交互：</span></span><br><span class="line"><span class="keyword">namespace</span> <span class="title">MyCarIEnumerator</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">class</span> <span class="title">Program</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">Main</span>(<span class="params"><span class="keyword">string</span>[] args</span>)</span><br><span class="line">        </span>&#123;</span><br><span class="line">            Console.WriteLine(<span class="string">"*********Fun with IEnumberable/IEnumerator************\n"</span>);</span><br><span class="line">            Garage carLot = <span class="keyword">new</span> Garage();</span><br><span class="line">            <span class="comment">//交出集合中的每一Car对象吗</span></span><br><span class="line">            <span class="keyword">foreach</span> (Car c <span class="keyword">in</span> carLot)  <span class="comment">//之所以遍历carLot，是因为carLot.GetEnumerator()返回的项时Car类型，这个十分重要</span></span><br><span class="line">            &#123;</span><br><span class="line">                Console.WriteLine(<span class="string">"&#123;0&#125; is going &#123;1&#125; MPH"</span>, c.CarName, c.CurrentSpeed);</span><br><span class="line">            &#125;</span><br><span class="line">            Console.WriteLine(<span class="string">"GetEnumerator被定义为公开的，对象用户可以与IEnumerator类型交互，下面的结果与上面是一致的"</span>);</span><br><span class="line">            <span class="comment">//手动与IEnumerator协作</span></span><br><span class="line">            IEnumerator i = carLot.GetEnumerator();</span><br><span class="line">            <span class="keyword">while</span> (i.MoveNext())</span><br><span class="line">            &#123;</span><br><span class="line">                Car myCar = (Car)i.Current;</span><br><span class="line">                Console.WriteLine(<span class="string">"&#123;0&#125; is going &#123;1&#125; MPH"</span>, myCar.CarName, myCar.CurrentSpeed);</span><br><span class="line">            &#125;</span><br><span class="line">            Console.ReadLine();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p><strong>自己实现IEnumerator接口</strong><br><figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">namespace</span> <span class="title">ForeachTestCase</span></span><br><span class="line">&#123;</span><br><span class="line">      <span class="comment">//继承IEnumerable接口，其实也可以不继承这个接口，只要类里面含有返回IEnumberator引用的GetEnumerator()方法即可</span></span><br><span class="line">    <span class="keyword">class</span> <span class="title">ForeachTest</span>:<span class="title">IEnumerable</span>     &#123;</span><br><span class="line">        <span class="keyword">private</span> <span class="keyword">string</span>[] elements;  <span class="comment">//装载字符串的数组</span></span><br><span class="line">        <span class="keyword">private</span> <span class="keyword">int</span> ctr = <span class="number">0</span>;  <span class="comment">//数组的下标计数器</span></span><br><span class="line">        <span class="comment"><span class="xmlDocTag">///</span> <span class="xmlDocTag">&lt;summary&gt;</span></span></span><br><span class="line">        <span class="comment"><span class="xmlDocTag">///</span> 初始化的字符串</span></span><br><span class="line">        <span class="comment"><span class="xmlDocTag">///</span> <span class="xmlDocTag">&lt;/summary&gt;</span></span></span><br><span class="line">        <span class="comment"><span class="xmlDocTag">///</span> <span class="xmlDocTag">&lt;param name="initialStrings"&gt;</span><span class="xmlDocTag">&lt;/param&gt;</span></span></span><br><span class="line">        ForeachTest(<span class="keyword">params</span> <span class="keyword">string</span>[] initialStrings)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="comment">//为字符串分配内存空间</span></span><br><span class="line">            elements = <span class="keyword">new</span> String[<span class="number">8</span>];</span><br><span class="line">            <span class="comment">//复制传递给构造方法的字符串</span></span><br><span class="line">            <span class="keyword">foreach</span> (<span class="keyword">string</span> s <span class="keyword">in</span> initialStrings)</span><br><span class="line">            &#123;</span><br><span class="line">                elements[ctr++] = s;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment"><span class="xmlDocTag">///</span> <span class="xmlDocTag">&lt;summary&gt;</span></span></span><br><span class="line">        <span class="comment"><span class="xmlDocTag">///</span>  构造函数</span></span><br><span class="line">        <span class="comment"><span class="xmlDocTag">///</span> <span class="xmlDocTag">&lt;/summary&gt;</span></span></span><br><span class="line">        <span class="comment"><span class="xmlDocTag">///</span> <span class="xmlDocTag">&lt;param name="source"&gt;</span>初始化的字符串<span class="xmlDocTag">&lt;/param&gt;</span></span></span><br><span class="line">        <span class="comment"><span class="xmlDocTag">///</span> <span class="xmlDocTag">&lt;param name="delimiters"&gt;</span>分隔符，可以是一个或多个字符分隔<span class="xmlDocTag">&lt;/param&gt;</span></span></span><br><span class="line">        ForeachTest(<span class="keyword">string</span> initialStrings, <span class="keyword">char</span>[] delimiters)</span><br><span class="line">        &#123;</span><br><span class="line">            elements = initialStrings.Split(delimiters);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">//实现接口中得方法</span></span><br><span class="line">        <span class="function"><span class="keyword">public</span> IEnumerator <span class="title">GetEnumerator</span>(<span class="params"></span>)</span><br><span class="line">        </span>&#123;</span><br><span class="line">            <span class="keyword">return</span>  <span class="keyword">new</span> ForeachTestEnumerator(<span class="keyword">this</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">private</span> <span class="keyword">class</span> <span class="title">ForeachTestEnumerator</span> : <span class="title">IEnumerator</span></span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">private</span> <span class="keyword">int</span> position = -<span class="number">1</span>;</span><br><span class="line">            <span class="keyword">private</span> ForeachTest t;</span><br><span class="line">            <span class="function"><span class="keyword">public</span> <span class="title">ForeachTestEnumerator</span>(<span class="params">ForeachTest t</span>)</span><br><span class="line">            </span>&#123;</span><br><span class="line">                <span class="keyword">this</span>.t = t;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="preprocessor">#<span class="keyword">region</span> 实现接口</span></span><br><span class="line">            <span class="keyword">public</span> <span class="keyword">object</span> Current</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">get</span></span><br><span class="line">                &#123;</span><br><span class="line">                    <span class="keyword">return</span> t.elements[position];</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">bool</span> <span class="title">MoveNext</span>(<span class="params"></span>)</span><br><span class="line">            </span>&#123;</span><br><span class="line">                <span class="keyword">if</span> (position &lt; t.elements.Length - <span class="number">1</span>)</span><br><span class="line">                &#123;</span><br><span class="line">                    position++;</span><br><span class="line">                    <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">else</span></span><br><span class="line">                &#123;</span><br><span class="line">                    <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">Reset</span>(<span class="params"></span>)</span><br><span class="line">            </span>&#123;</span><br><span class="line">                position = -<span class="number">1</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="preprocessor">#<span class="keyword">endregion</span></span></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">Main</span>(<span class="params"><span class="keyword">string</span>[] args</span>)</span><br><span class="line">        </span>&#123;</span><br><span class="line">            <span class="comment">// ForeachTest f = new ForeachTest("This is a sample sentence.", new char[] &#123; ' ', '-' &#125;);</span></span><br><span class="line">            ForeachTest f = <span class="keyword">new</span> ForeachTest(<span class="string">"This"</span>, <span class="string">"is"</span>, <span class="string">"a"</span>, <span class="string">"sample"</span>, <span class="string">"sentence."</span>);</span><br><span class="line">            <span class="keyword">foreach</span> (<span class="keyword">string</span> item <span class="keyword">in</span> f)</span><br><span class="line">            &#123;</span><br><span class="line">                System.Console.WriteLine(item);</span><br><span class="line">            &#125;</span><br><span class="line">            Console.ReadKey();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p><strong>通过以上代码，我们知道:</strong></p>
+<p>foreach 迭代集合的本质还是通过索引的方式。通过IEnumerator包装了索引访问从而实现对象访问的方式。</p>
+
+	
+	</div>
+	
+  
+</div>
+	<a type="button" href="/2015/08/17/ienumerator/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+
+		</div>
+
+		<!-- pagination -->
+		<div>
+  		<center>
+		<div class="pagination">
+<ul class="pagination">
+	 
+		
+    	<li class="prev"><a href="/" class="alignleft prev"><i class="fa fa-arrow-circle-o-left"></i> 上一页</a></li>
+  		
+
+        <li><a href="/"><i class="fa fa-home"></i>Home</a></li>
+
+		
+		   <li class="next"> <a href="/page/3/" class="alignright next">下一页<i class="fa fa-arrow-circle-o-right"></i></a> </li>          
+        
+	
+</ul>
+</div>
+
+  		</center>
+		</div>
+
+		
+		
+	</div> <!-- col-md-9 -->
+
+	
+		<div class="col-md-3">
+	<div id="sidebar">
+	
+			<div class="form-group has-success has-feedback">
+
+ <input type="search" name="q" results="0" placeholder="搜索" class="form-control" id="searchSite">
+</div>
+
+		
+			
+	<div class="widget">
+		<h4>分类</h4>
+		<ul class="tag_box inline list-unstyled">
+		
+			<li><a href="/categories/net基础/">.net基础<span>3</span></a></li>
+		
+			<li><a href="/categories/sql/">sql<span>1</span></a></li>
+		
+			<li><a href="/categories/随笔/">随笔<span>1</span></a></li>
+		
+		</ul>
+	</div>
+
+		
+			
+	<div class="widget">
+		<h4>标签云</h4>
+		<ul class="tag_box inline list-unstyled">		
+		
+			<li><a href="/tags/GC/">GC<span>1</span></a></li>
+		
+			<li><a href="/tags/随笔/">随笔<span>1</span></a></li>
+		
+			<li><a href="/tags/sql/">sql<span>1</span></a></li>
+		
+			<li><a href="/tags/c/">c#<span>2</span></a></li>
+		
+		 
+		</ul>
+	</div>
+
+
+		
+			
+<div class="widget">
+  <h4>最新文章</h4>
+  <ul class="entry list-unstyled">
+    
+      <li>
+        <a href="/2015/08/27/sql执语句执行顺序/" ><i class="fa fa-file-o"></i>sql语句执行顺序...</a>
+      </li>
+    
+      <li>
+        <a href="/2015/08/17/ienumerator/" ><i class="fa fa-file-o"></i>IEnumerator &amp;IEnumerable...</a>
+      </li>
+    
+      <li>
+        <a href="/2015/08/16/for-foreach/" ><i class="fa fa-file-o"></i>for vs foreach...</a>
+      </li>
+    
+      <li>
+        <a href="/2015/08/15/dispose/" ><i class="fa fa-file-o"></i>Dispose模式...</a>
+      </li>
+    
+      <li>
+        <a href="/2015/08/14/cat/" ><i class="fa fa-file-o"></i>programer...</a>
+      </li>
+    
+  </ul>
+</div>
+
+		
+			
+<div class="widget">
+	<h4>链接</h4>
+	<ul class="blogroll list-unstyled">
+	
+		<li><i class="fa fa-github"></i><a href="http://www.github.com/bytes1001" title="My Github account." target="_blank"]);">My Github</a></li>
+	
+		<li><i class="fa fa-linkedin"></i><a href="http://t.qq.com/vassili1001" title="My Linkin account." target="_blank"]);">我的微博</a></li>
+	
+	</ul>
+</div>
+
+
+		
+			
+<div class="widget">
+  <h4>最新评论</h4>
+<p class="ds-recent-comments" data-num-items="10" data-show-avatars="1" data-show-time="1" data-show-admin="1" data-excerpt-length="70">
+</p>
+</div>
+
+		
+	</div> <!-- sidebar -->
+</div> <!-- col-md-3 -->
+
+	
+	
+</div> <!-- row-fluid -->
+	</div>
+  </div>
+  <div class="container-narrow">
+  <footer> <p>
+  &copy; 2015 bytes1001
+  
+     <span id="busuanzi_container_site_uv">
+     本站访客数<span id="busuanzi_value_site_uv"></span>
+</span>    
+</p>
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+<script type="text/javascript">
+  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+  (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+  e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+  })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+
+  _st('install','v8agv7ryjYaDH8Ffb_LA','2.0.0');
+</script> </footer>
+</div> <!-- container-narrow -->
+  
+<a id="gotop" href="#">   
+  <span>▲</span> 
+</a>
+
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+<script src="/js/main.js"></script>
+
+
+<script type="text/javascript">
+  var duoshuoQuery = { short_name: 'bytes1001' };
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';
+    ds.async = true;
+    ds.src = 'http://static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+</script>
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+
+</body>
+   </html>
