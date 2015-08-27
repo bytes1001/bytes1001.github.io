@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-  <title><![CDATA[bytes1001]]></title>
+  <title><![CDATA[平凡之路]]></title>
   <subtitle><![CDATA[coding]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://bytes1001.github.io/"/>
@@ -8,7 +8,7 @@
   <id>http://bytes1001.github.io/</id>
   
   <author>
-    <name><![CDATA[bytes1001]]></name>
+    <name><![CDATA[chaofan.cui]]></name>
     
   </author>
   
