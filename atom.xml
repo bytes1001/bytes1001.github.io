@@ -151,7 +151,7 @@
     <link href="http://bytes1001.github.io/2015/08/15/dispose/"/>
     <id>http://bytes1001.github.io/2015/08/15/dispose/</id>
     <published>2015-08-15T03:09:58.000Z</published>
-    <updated>2015-08-17T01:55:30.853Z</updated>
+    <updated>2015-08-28T16:55:34.537Z</updated>
     <content type="html"><![CDATA[<h4 id="我们知道在托管代码里调用非托管资源时，需要显式释放非托管资源">我们知道在托管代码里调用非托管资源时，需要显式释放非托管资源</h4><p>有两种方式：</p>
 <p><strong>1.主动释放</strong>（<em>调用者调用dispose</em>）</p>
 <p>优点：效率高，资源释放快。<br>缺点：调用者可能忘记调用dispose方法，造成资源没有释放</p>
