@@ -123,8 +123,8 @@ var _hmt = _hmt || [];
 	
 	<!-- display as entry -->	
 		<h3 class="title">
-			<div class="date"> 2015-08-14 </div>
-			<div class="article-title"><a href="/2015/08/14/cat/" >programer</a></div>						
+			<div class="date"> 2015-08-15 </div>
+			<div class="article-title"><a href="/2015/08/15/dispose/" >Dispose模式</a></div>						
 		</h3>
 	
 
@@ -135,15 +135,21 @@ var _hmt = _hmt || [];
 	<div class="col-md-12">
 	  
 	
-	  <p>hi.</p>
-<p><img src="http://bytes.oss-cn-hangzhou.aliyuncs.com/blog%2Fmonkey.jpg" alt="cat"></p>
-
+	  <h4 id="我们知道在托管代码里调用非托管资源时，需要显式释放非托管资源">我们知道在托管代码里调用非托管资源时，需要显式释放非托管资源</h4><p>有两种方式：</p>
+<p><strong>1.主动释放</strong>（<em>调用者调用dispose</em>）</p>
+<p>优点：效率高，资源释放快。<br>缺点：调用者可能忘记调用dispose方法，造成资源没有释放</p>
+<p><strong>2.被动释放</strong>（<em>析构函数里dispose</em>）</p>
+<p>优点：即使调用者没有调用dispose方法，资源也会在GC的时候dispose<br>缺点：效率低，不知道GC什么时候进行，而且这种方式也增加了GC的负担</p>
+<p>微软的.net团队给出了资源释放的Dispose模式，兼顾了类型安全性与执行效率。</p>
+<p>下面是我写的dispose模式具体例子，</p>
+<p>MyResourceWrapper类型调用win api向外部暴露Graphics。</p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">using</span> System;</span><br><span class="line"><span class="keyword">using</span> System.Collections.Generic;</span><br><span class="line"><span class="keyword">using</span> System.Drawing;</span><br><span class="line"><span class="keyword">using</span> System.Linq;</span><br><span class="line"><span class="keyword">using</span> System.Text;</span><br><span class="line"><span class="keyword">namespace</span> <span class="title">GC</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment"><span class="xmlDocTag">///</span> <span class="xmlDocTag">&lt;summary&gt;</span></span></span><br><span class="line">    <span class="comment"><span class="xmlDocTag">///</span> 这个类包装了非托管资源。</span></span><br><span class="line">    <span class="comment"><span class="xmlDocTag">///</span> <span class="xmlDocTag">&lt;/summary&gt;</span></span></span><br><span class="line">  <span class="keyword">public</span>  <span class="keyword">class</span> <span class="title">MyResourceWrapper</span>:<span class="title">IDisposable</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">private</span> IntPtr handle;<span class="comment">//句柄,非托管资源</span></span><br><span class="line">        <span class="keyword">public</span> Graphics Graphics</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">get</span></span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">return</span> Graphics.FromHdc(handle);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">private</span> <span class="keyword">bool</span> disposed = <span class="keyword">false</span>;</span><br><span class="line"> </span><br><span class="line">        MyResourceWrapper()</span><br><span class="line">        &#123;</span><br><span class="line">            handle = GetDC(IntPtr.Zero);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">Dispose</span>(<span class="params"></span>)</span><br><span class="line">        </span>&#123;</span><br><span class="line">            CleanUp(<span class="keyword">true</span>);<span class="comment">//释放资源</span></span><br><span class="line">            System.GC.SuppressFinalize(<span class="keyword">this</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">//析构方法应该只释放非托管资源。不要释放托管资源。</span></span><br><span class="line">        <span class="comment">//因为GC回收时，有可能托管类型已经被释放掉。会导致抛异常。</span></span><br><span class="line">        <span class="comment">//定义析构函数会导致至少两次垃圾回收，效能低下。</span></span><br><span class="line">        ~MyResourceWrapper()</span><br><span class="line">        &#123;</span><br><span class="line">            CleanUp(<span class="keyword">false</span>);</span><br><span class="line">        &#125;</span><br><span class="line">      <span class="comment"><span class="xmlDocTag">///</span> <span class="xmlDocTag">&lt;summary&gt;</span></span></span><br><span class="line">      <span class="comment"><span class="xmlDocTag">///</span></span></span><br><span class="line">      <span class="comment"><span class="xmlDocTag">///</span> <span class="xmlDocTag">&lt;/summary&gt;</span></span></span><br><span class="line">      <span class="comment"><span class="xmlDocTag">///</span> <span class="xmlDocTag">&lt;param name="flag"&gt;</span>标识清理托管资源还是非托管资源<span class="xmlDocTag">&lt;/param&gt;</span></span></span><br><span class="line">        <span class="function"><span class="keyword">void</span> <span class="title">CleanUp</span>(<span class="params"><span class="keyword">bool</span> flag</span>)</span><br><span class="line">        </span>&#123;</span><br><span class="line">            <span class="keyword">if</span> (!<span class="keyword">this</span>.disposed)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">if</span> (flag)</span><br><span class="line">                &#123;</span><br><span class="line">                    <span class="comment">//释放托管资源</span></span><br><span class="line">                    Console.WriteLine(<span class="string">"成功释放非托管资源！"</span>);</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="comment">//释放非托管资源</span></span><br><span class="line">                ReleaseDC(IntPtr.Zero,handle);</span><br><span class="line">                Console.WriteLine(<span class="string">"成功释放托管资源！"</span>);</span><br><span class="line">            &#125;</span><br><span class="line">            disposed = <span class="keyword">true</span>;<span class="comment">//已经清理</span></span><br><span class="line">        &#125;</span><br><span class="line">      <span class="comment"><span class="xmlDocTag">///</span> <span class="xmlDocTag">&lt;summary&gt;</span></span></span><br><span class="line">      <span class="comment"><span class="xmlDocTag">///</span> 目的在于说明这个类的高效率Dispose模式。</span></span><br><span class="line">      <span class="comment"><span class="xmlDocTag">///</span> <span class="xmlDocTag">&lt;/summary&gt;</span></span></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">Test</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">            <span class="keyword">using</span> (<span class="keyword">var</span> re=<span class="keyword">new</span> MyResourceWrapper())</span><br><span class="line">            &#123;</span><br><span class="line">                re.Graphics.DrawEllipse(<span class="keyword">new</span> Pen(Color.Red),<span class="number">100</span>,<span class="number">100</span>,<span class="number">300</span>,<span class="number">300</span>);</span><br><span class="line">            &#125;</span><br><span class="line">         </span><br><span class="line">        &#125;</span><br><span class="line">      <span class="comment"><span class="xmlDocTag">///</span> <span class="xmlDocTag">&lt;summary&gt;</span></span></span><br><span class="line">      <span class="comment"><span class="xmlDocTag">///</span> 目的在于说明开发者忘记去调用dispose方法释放资源了。</span></span><br><span class="line">      <span class="comment"><span class="xmlDocTag">///</span> <span class="xmlDocTag">&lt;/summary&gt;</span></span></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">TestFinalize</span>(<span class="params"></span>)</span><br><span class="line">        </span>&#123;</span><br><span class="line">            <span class="keyword">var</span> re = <span class="keyword">new</span> MyResourceWrapper();</span><br><span class="line">            re.Graphics.DrawEllipse(<span class="keyword">new</span> Pen(Color.Red), <span class="number">100</span>, <span class="number">100</span>, <span class="number">300</span>, <span class="number">300</span>);</span><br><span class="line">            re = <span class="keyword">null</span>;</span><br><span class="line">            System.GC.Collect();</span><br><span class="line">            System.GC.WaitForPendingFinalizers();</span><br><span class="line">        &#125;</span><br><span class="line">        [System.Runtime.InteropServices.DllImport(<span class="string">"User32.dll"</span>)]</span><br><span class="line">         <span class="function"><span class="keyword">static</span> <span class="keyword">extern</span> IntPtr <span class="title">GetDC</span>(<span class="params">IntPtr Hwnd</span>)</span>;</span><br><span class="line"> </span><br><span class="line">        [System.Runtime.InteropServices.DllImport(<span class="string">"User32.dll"</span>)]</span><br><span class="line">         <span class="function"><span class="keyword">static</span>  <span class="keyword">extern</span> <span class="keyword">int</span> <span class="title">ReleaseDC</span>(<span class="params">IntPtr hWnd, IntPtr hDC</span>)</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 	
 	</div>
 	
   
 </div>
-	<a type="button" href="/2015/08/14/cat/#more" class="btn btn-default more">阅读此文</a>
+	<a type="button" href="/2015/08/15/dispose/#more" class="btn btn-default more">阅读此文</a>
 </div>
 
 		
@@ -163,7 +169,7 @@ var _hmt = _hmt || [];
         <li><a href="/"><i class="fa fa-home"></i>Home</a></li>
 
 		
-          <li class="next disabled"><a>下一页<i class="fa fa-arrow-circle-o-right"></i></a></li>
+		   <li class="next"> <a href="/page/7/" class="alignright next">下一页<i class="fa fa-arrow-circle-o-right"></i></a> </li>          
         
 	
 </ul>
@@ -197,6 +203,8 @@ var _hmt = _hmt || [];
 		
 			<li><a href="/categories/好文章/">好文章<span>1</span></a></li>
 		
+			<li><a href="/categories/编程概念/">编程概念<span>1</span></a></li>
+		
 			<li><a href="/categories/随笔/">随笔<span>1</span></a></li>
 		
 		</ul>
@@ -208,15 +216,17 @@ var _hmt = _hmt || [];
 		<h4>标签云</h4>
 		<ul class="tag_box inline list-unstyled">		
 		
-			<li><a href="/tags/随笔/">随笔<span>1</span></a></li>
-		
 			<li><a href="/tags/c/">c#<span>2</span></a></li>
+		
+			<li><a href="/tags/闭包/">闭包<span>1</span></a></li>
 		
 			<li><a href="/tags/习惯/">习惯<span>1</span></a></li>
 		
 			<li><a href="/tags/sql/">sql<span>1</span></a></li>
 		
 			<li><a href="/tags/GC/">GC<span>1</span></a></li>
+		
+			<li><a href="/tags/随笔/">随笔<span>1</span></a></li>
 		
 		 
 		</ul>
@@ -228,6 +238,10 @@ var _hmt = _hmt || [];
 <div class="widget">
   <h4>最新文章</h4>
   <ul class="entry list-unstyled">
+    
+      <li>
+        <a href="/2015/09/03/闭包/" ><i class="fa fa-file-o"></i>闭包...</a>
+      </li>
     
       <li>
         <a href="/2015/08/28/10xdeveloper/" ><i class="fa fa-file-o"></i>10个习惯和10倍开发效率...</a>
@@ -243,10 +257,6 @@ var _hmt = _hmt || [];
     
       <li>
         <a href="/2015/08/16/for-foreach/" ><i class="fa fa-file-o"></i>for vs foreach...</a>
-      </li>
-    
-      <li>
-        <a href="/2015/08/15/dispose/" ><i class="fa fa-file-o"></i>Dispose模式...</a>
       </li>
     
   </ul>
