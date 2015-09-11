@@ -3,13 +3,17 @@
 <head>
   <meta charset="utf-8">
   
-  <title>平凡之路</title>
+  <title>IL解析 | 平凡之路</title>
   <meta name="author" content="chaofan.cui">
+  
+  <meta name="description" content="我们知道静态类型的语言如C#分两阶段编译:
+
+第一阶段，编译时阶段。由CSC.exe 语法编译器负责把C#代码编译成面向CLR的IL代码。这一阶段CSC.exe 负责语法检查。检查开发者写的文本代码是否遵循c#语法规则。你总不能用java的语法规则去跟CLR说，hi，你能不能帮我计算下1+1 等于多">
   
   
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-  
+  <meta property="og:title" content="IL解析"/>
   <meta property="og:site_name" content="平凡之路"/>
 
   
@@ -100,42 +104,28 @@ var _hmt = _hmt || [];
 
   <div class="container">
   	<div class="content">
-    	 <div class="page-header">
-  <h1>coding</h1>
-</div>
+    	 
 
-<div class="row page">
 
+	
+		<div class="page-header">		
+			<h1> IL解析</h1>
+		</div>		
+	
+
+
+
+<div class="row post">
+	<!-- cols -->
 	
 	<div class="col-md-9">
 	
 
-		<div class="slogan">
-      <i class="fa fa-heart"></i>
-      stay hungry,stay foolish
-</div>    
-
-		<div class="mypage">
-		
-		<!-- title and entry -->
-		
 			
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2015-09-11 </div>
-			<div class="article-title"><a href="/2015/09/11/IL解析/" >IL解析</a></div>						
-		</h3>
-	
 
-
-			<div class="entry">
-  <div class="row">
-  
-	<div class="col-md-12">
-	  
-	
-	  <p>我们知道静态类型的语言如C#分两阶段编译:</p>
+	<!-- content -->
+	<div class="mypage">		
+	    <p>我们知道静态类型的语言如C#分两阶段编译:</p>
 <p><img src="http://bytes.oss-cn-hangzhou.aliyuncs.com/blog%2F%E4%B8%A4%E9%98%B6%E6%AE%B5%E7%BC%96%E8%AF%91.png" alt=""></p>
 <p><strong>第一阶段</strong>，编译时阶段。由CSC.exe 语法编译器负责把C#代码编译成面向CLR的IL代码。这一阶段CSC.exe 负责语法检查。检查开发者写的文本代码是否遵循c#语法规则。你总不能用java的语法规则去跟CLR说，hi，你能不能帮我计算下1+1 等于多少？  CLR的秘书CSC直接把你拦在门口，因为CLR说过，他讨厌java这种农村佬,java应该去找江湖老油条JVM。</p>
 <p><strong>第二阶段</strong>，运行时阶段。由CLR的JIT编译器把IL代码编译成面向CPU的Native code（本地代码）。这一阶段CLR负责类型检查，资源分配等工作。</p>
@@ -150,156 +140,94 @@ var _hmt = _hmt || [];
 <p>父类方法被隐藏后通过子类对象是没法调用到的。<a href="http://stackoverflow.com/questions/656325/what-is-the-purpose-of-hidebysig-in-a-msil-method" target="_blank" rel="external">更详细的hidebysig解析请猛击这里</a></p>
 <p>第三行声明这是函数的入口。</p>
 <p>好困，未完待续…</p>
-
-	
+	 
 	</div>
-	
-  
-</div>
-	<a type="button" href="/2015/09/11/IL解析/#more" class="btn btn-default more">阅读此文</a>
-</div>
 
-		
-
-		</div>
-
-		<!-- pagination -->
-		<div>
-  		<center>
-		<div class="pagination">
+	<div>
+	<span id="busuanzi_container_page_pv" style='display:none' >阅读量<span id="busuanzi_value_page_pv"></span></span>
+  	<center>
+	<div class="pagination">
 <ul class="pagination">
 	 
 		
           <li class="prev disabled"><a><i class="fa fa-arrow-circle-o-left"></i>上一页</a></li>
         
 
-        <li><a href="/"><i class="fa fa-home"></i>Home</a></li>
+        <li><a href="/archives"><i class="fa fa-archive"></i>Archive</a></li>
 
 		
-		   <li class="next"> <a href="/page/2/" class="alignright next">下一页<i class="fa fa-arrow-circle-o-right"></i></a> </li>          
+		   <li class="next"><a href="/2015/09/03/闭包/" class="alignright next">下一页<i class="fa fa-arrow-circle-o-right"></i></a></li>         
         
 	
 </ul>
 </div>
 
-  		</center>
-		</div>
-
-		
-		
-	</div> <!-- col-md-9 -->
-
-	
-		<div class="col-md-3">
-	<div id="sidebar">
-	
-			<div class="form-group has-success has-feedback">
-
- <input type="search" name="q" results="0" placeholder="搜索" class="form-control" id="searchSite">
-</div>
-
-		
-			
-	<div class="widget">
-		<h4>分类</h4>
-		<ul class="tag_box inline list-unstyled">
-		
-			<li><a href="/categories/net基础/">.net基础<span>4</span></a></li>
-		
-			<li><a href="/categories/sql/">sql<span>1</span></a></li>
-		
-			<li><a href="/categories/好文章/">好文章<span>1</span></a></li>
-		
-			<li><a href="/categories/编程概念/">编程概念<span>1</span></a></li>
-		
-			<li><a href="/categories/随笔/">随笔<span>1</span></a></li>
-		
-		</ul>
+    </center>
 	</div>
 
-		
-			
-	<div class="widget">
-		<h4>标签云</h4>
-		<ul class="tag_box inline list-unstyled">		
-		
-			<li><a href="/tags/随笔/">随笔<span>1</span></a></li>
-		
-			<li><a href="/tags/闭包/">闭包<span>1</span></a></li>
-		
-			<li><a href="/tags/GC/">GC<span>1</span></a></li>
-		
-			<li><a href="/tags/IL/">IL<span>1</span></a></li>
-		
-			<li><a href="/tags/c/">c#<span>2</span></a></li>
-		
-			<li><a href="/tags/习惯/">习惯<span>1</span></a></li>
-		
-			<li><a href="/tags/sql/">sql<span>1</span></a></li>
-		
-		 
-		</ul>
+	<!-- comment -->
+	
+<section id="comment">
+  <h2 class="title">留言</h2>
+
+  
+  	 <div class="ds-thread" data-thread-key="2015/09/11/IL解析/" data-title="IL解析" data-url="http://bytes1001.github.io/2015/09/11/IL解析/"></div>  
+  
+</section>
+
+	
+	</div> <!-- col-md-9/col-md-12 -->
+	
+	
+		<div class="col-md-3"> 
+
+	<!-- date -->
+	
+	<div class="meta-widget">
+	<i class="fa fa-clock-o"></i>
+	2015-09-11 
 	</div>
+	
 
+	<!-- categories -->
+    
+	<div class="meta-widget">
+	<a data-toggle="collapse" data-target="#categorys"><i class="fa fa-folder"></i></a>	
+    <ul id="categorys" class="tag_box list-unstyled collapse in">
+          
+  <li>
+    <li><a href="/categories/net基础/">.net基础<span>4</span></a></li>
+  </li>
 
+    </ul>
+	</div>
+	
+
+	<!-- tags -->
+	
+	<div class="meta-widget">
+	<a data-toggle="collapse" data-target="#tags"><i class="fa fa-tags"></i></a>		  
+    <ul id="tags" class="tag_box list-unstyled collapse in">	  
+	    
+  <li><a href="/tags/IL/">IL<span>1</span></a></li>
+    </ul>
+	</div>
 		
-			
-<div class="widget">
-  <h4>最新文章</h4>
-  <ul class="entry list-unstyled">
-    
-      <li>
-        <a href="/2015/09/11/IL解析/" ><i class="fa fa-file-o"></i>IL解析...</a>
-      </li>
-    
-      <li>
-        <a href="/2015/09/03/闭包/" ><i class="fa fa-file-o"></i>闭包...</a>
-      </li>
-    
-      <li>
-        <a href="/2015/08/28/10xdeveloper/" ><i class="fa fa-file-o"></i>10个习惯和10倍开发效率...</a>
-      </li>
-    
-      <li>
-        <a href="/2015/08/27/sql执语句执行顺序/" ><i class="fa fa-file-o"></i>sql语句执行顺序...</a>
-      </li>
-    
-      <li>
-        <a href="/2015/08/17/ienumerator/" ><i class="fa fa-file-o"></i>IEnumerator &amp;IEnumerable...</a>
-      </li>
-    
-  </ul>
-</div>
 
-		
-			
-<div class="widget">
-	<h4>链接</h4>
-	<ul class="blogroll list-unstyled">
+	<!-- toc -->
+	<div class="meta-widget">
 	
-		<li><i class="fa fa-github"></i><a href="http://www.github.com/bytes1001" title="My Github account." target="_blank"]);">My Github</a></li>
+	</div>
 	
-		<li><i class="fa fa-linkedin"></i><a href="http://t.qq.com/vassili1001" title="My Linkin account." target="_blank"]);">我的微博</a></li>
+    <hr>
 	
-	</ul>
-</div>
-
-
-		
-			
-<div class="widget">
-  <h4>最新评论</h4>
-<p class="ds-recent-comments" data-num-items="10" data-show-avatars="1" data-show-time="1" data-show-admin="1" data-excerpt-length="70">
-</p>
-</div>
-
-		
-	</div> <!-- sidebar -->
-</div> <!-- col-md-3 -->
+</div><!-- col-md-3 -->
 
 	
-	
-</div> <!-- row-fluid -->
+
+</div><!-- row -->
+
+
 	</div>
   </div>
   <div class="container-narrow">
