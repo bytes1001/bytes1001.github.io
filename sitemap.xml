@@ -2,6 +2,16 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://bytes1001.github.io/message/message.html</loc>
+    <lastmod>2016-05-18T20:14:29.057Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://bytes1001.github.io/message/index.html</loc>
+    <lastmod>2016-05-18T20:12:12.466Z</lastmod>
+  </url>
+  
+  <url>
     <loc>http://bytes1001.github.io/2016/05/18/2016-05-18-test/</loc>
     <lastmod>2016-05-18T12:22:59.258Z</lastmod>
   </url>

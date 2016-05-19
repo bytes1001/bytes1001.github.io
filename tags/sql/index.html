@@ -22,10 +22,12 @@
   
     <link href="/favicon.ico" rel="icon">
   
-  
-  <link rel="stylesheet" href="/css/bootstrap.min.css" media="screen" type="text/css">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/css/themes/cerulean.css" media="screen" type="text/css">
   <link rel="stylesheet" href="/css/font-awesome.css" media="screen" type="text/css">
   <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/responsive.css" media="screen" type="text/css">
   <link rel="stylesheet" href="/css/highlight.css" media="screen" type="text/css">
   <link rel="stylesheet" href="/css/google-fonts.css" media="screen" type="text/css">
   <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
@@ -46,18 +48,19 @@ var _hmt = _hmt || [];
 })();
 </script>
 
+
 </head>
 
  <body>  
-  <nav id="main-nav" class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+  <nav id="main-nav" class="navbar  navbar-default navbar-fixed-top" role="navigation">
     <div class="container">
       <button type="button" class="navbar-header navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-		<span class="sr-only">Toggle navigation</span>
+	<span class="sr-only">Toggle navigation</span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-	  <a class="navbar-brand" href="/">平凡之路</a>
+       <a class="navbar-brand" href="/">平凡之路</a>
       <div class="collapse navbar-collapse nav-menu">
 		<ul class="nav navbar-nav">
 		  
@@ -86,13 +89,18 @@ var _hmt = _hmt || [];
 		  </li>
 		  
 		  <li>
+			<a href="/message" title="All the tags.">
+			  <i class="fa fa-pencil"></i>给我留言
+			</a>
+		  </li>
+		  
+		  <li>
 			<a href="/atom.xml" title="RSS">
 			  <i class="fa fa-rss-square"></i>RSS
 			</a>
 		  </li>
 		  
 		</ul>
-		
       </div>
     </div> <!-- container -->
 </nav>
@@ -103,8 +111,8 @@ var _hmt = _hmt || [];
     	 
 
 <!-- title -->
-<div class="page-header">
-  <h1 class="archive-title-tag">sql</h1>
+<div class="page-header ">
+  <h1 class="archive-title-tag title ">sql</h1>
 </div>
 
 <div class="row page">
@@ -112,6 +120,8 @@ var _hmt = _hmt || [];
   
   <div class="col-md-9">
 	
+
+	  <div id="top_search"></div>
 
 	  <div class="archive">
 		
@@ -133,16 +143,34 @@ var _hmt = _hmt || [];
 		</ul>
 		</div>
 
+		<!-- pagination for tags/category-->
+        
+        <div>
+        <center>
+        <div class="pagination">
+<ul class="pagination">
+	 
+</ul>
+</div>
+
+        </center>
+        </div>
+        
+
 </div> <!-- col-md-9/col-md-12 -->
 
 
 <div class="col-md-3">
 	<div id="sidebar">
 	
-			<div class="form-group has-success has-feedback">
+			
+  <div id="site_search">
+   <div class="form-group">
+    <input type="text" id="local-search-input" name="q" results="0" placeholder="搜索" class="st-search-input st-default-search-input form-control"/>
+   </div>  
+  <div id="local-search-result"></div>
+  </div>
 
- <input type="search" name="q" results="0" placeholder="搜索" class="form-control" id="searchSite">
-</div>
 
 		
 			
@@ -171,17 +199,17 @@ var _hmt = _hmt || [];
 		
 			<li><a href="/tags/习惯/">习惯<span>1</span></a></li>
 		
-			<li><a href="/tags/IL/">IL<span>1</span></a></li>
-		
-			<li><a href="/tags/随笔/">随笔<span>1</span></a></li>
-		
-			<li><a href="/tags/c/">c#<span>2</span></a></li>
+			<li><a href="/tags/GC/">GC<span>1</span></a></li>
 		
 			<li><a href="/tags/闭包/">闭包<span>1</span></a></li>
 		
 			<li><a href="/tags/sql/">sql<span>1</span></a></li>
 		
-			<li><a href="/tags/GC/">GC<span>1</span></a></li>
+			<li><a href="/tags/IL/">IL<span>1</span></a></li>
+		
+			<li><a href="/tags/c/">c#<span>2</span></a></li>
+		
+			<li><a href="/tags/随笔/">随笔<span>1</span></a></li>
 		
 		 
 		</ul>
@@ -238,7 +266,16 @@ var _hmt = _hmt || [];
 <p class="ds-recent-comments" data-num-items="10" data-show-avatars="1" data-show-time="1" data-show-admin="1" data-excerpt-length="70">
 </p>
 </div>
-
+	<script type="text/javascript">
+	    var duoshuoQuery = { short_name: 'bytes1001' };
+	    (function() {
+	    var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = 'http://static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(ds);
+		})();
+	</script>
 		
 	</div> <!-- sidebar -->
 </div> <!-- col-md-3 -->
@@ -252,22 +289,12 @@ var _hmt = _hmt || [];
   <footer> <p>
   &copy; 2016 chaofan.cui
   
-     <span id="busuanzi_container_site_uv">
-     本站访客数<span id="busuanzi_value_site_uv"></span>
-</span>    
-</p>
-
-<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
-</script>
-<script type="text/javascript">
-  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
-  (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
-  e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
-  })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
-
-  _st('install','v8agv7ryjYaDH8Ffb_LA','2.0.0');
-</script> </footer>
+      with help from <a href="http://hexo.io/" target="_blank">Hexo</a> and <a href="http://getbootstrap.com/" target="_blank">Twitter Bootstrap</a>. Theme by <a href="http://github.com/wzpan/hexo-theme-freemind/">Freemind</a>.    
+</p> </footer>
 </div> <!-- container-narrow -->
+  
+
+
   
 <a id="gotop" href="#">   
   <span>▲</span> 
@@ -277,19 +304,7 @@ var _hmt = _hmt || [];
 <script src="/js/gallery.js"></script>
 <script src="/js/bootstrap.min.js"></script>
 <script src="/js/main.js"></script>
-
-
-<script type="text/javascript">
-  var duoshuoQuery = { short_name: 'bytes1001' };
-  (function() {
-    var ds = document.createElement('script');
-    ds.type = 'text/javascript';
-    ds.async = true;
-    ds.src = 'http://static.duoshuo.com/embed.js';
-    ds.charset = 'UTF-8';
-    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(ds);
-  })();
-</script>
+<script src="/js/search.js"></script> 
 
 
 <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
@@ -300,6 +315,16 @@ var _hmt = _hmt || [];
 })(jQuery);
 </script>
 
+
+
+   <script type="text/javascript">      
+     var search_path = "search.xml";
+	 if (search_path.length == 0) {
+	 	search_path = "search.xml";
+	 }
+	 var path = "/" + search_path;
+     searchFunc(path, 'local-search-input', 'local-search-result');
+   </script>
 
 </body>
    </html>

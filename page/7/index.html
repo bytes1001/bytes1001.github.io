@@ -22,10 +22,12 @@
   
     <link href="/favicon.ico" rel="icon">
   
-  
-  <link rel="stylesheet" href="/css/bootstrap.min.css" media="screen" type="text/css">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/css/themes/cerulean.css" media="screen" type="text/css">
   <link rel="stylesheet" href="/css/font-awesome.css" media="screen" type="text/css">
   <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/responsive.css" media="screen" type="text/css">
   <link rel="stylesheet" href="/css/highlight.css" media="screen" type="text/css">
   <link rel="stylesheet" href="/css/google-fonts.css" media="screen" type="text/css">
   <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
@@ -46,18 +48,19 @@ var _hmt = _hmt || [];
 })();
 </script>
 
+
 </head>
 
  <body>  
-  <nav id="main-nav" class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+  <nav id="main-nav" class="navbar  navbar-default navbar-fixed-top" role="navigation">
     <div class="container">
       <button type="button" class="navbar-header navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-		<span class="sr-only">Toggle navigation</span>
+	<span class="sr-only">Toggle navigation</span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-	  <a class="navbar-brand" href="/">平凡之路</a>
+       <a class="navbar-brand" href="/">平凡之路</a>
       <div class="collapse navbar-collapse nav-menu">
 		<ul class="nav navbar-nav">
 		  
@@ -86,13 +89,18 @@ var _hmt = _hmt || [];
 		  </li>
 		  
 		  <li>
+			<a href="/message" title="All the tags.">
+			  <i class="fa fa-pencil"></i>给我留言
+			</a>
+		  </li>
+		  
+		  <li>
 			<a href="/atom.xml" title="RSS">
 			  <i class="fa fa-rss-square"></i>RSS
 			</a>
 		  </li>
 		  
 		</ul>
-		
       </div>
     </div> <!-- container -->
 </nav>
@@ -100,8 +108,8 @@ var _hmt = _hmt || [];
 
   <div class="container">
   	<div class="content">
-    	 <div class="page-header">
-  <h1>coding</h1>
+    	 <div class="page-header ">
+  <h1 class="title ">coding</h1>
 </div>
 
 <div class="row page">
@@ -114,7 +122,7 @@ var _hmt = _hmt || [];
       <i class="fa fa-heart"></i>
       stay hungry,stay foolish
 </div>    
-
+		<div id="top_search"></div>
 		<div class="mypage">
 		
 		<!-- title and entry -->
@@ -131,11 +139,9 @@ var _hmt = _hmt || [];
 
 			<div class="entry">
   <div class="row">
-  
-	<div class="col-md-12">
-	  
 	
-	  <h5 id="&#x7FFB;&#x5899;&#x51FA;&#x53BB;&#xFF0C;&#x627E;&#x5230;&#x7684;&#x4E00;&#x7BC7;&#x6587;&#x7AE0;&#x3002;&#x6BD4;&#x8F83;&#x597D;&#xFF0C;&#x968F;&#x624B;&#x5C31;copy_&#x5206;&#x4EAB;&#x7ED9;&#x5927;&#x5BB6;&#x3002;&#x82F1;&#x6587;&#x4E0D;&#x597D;&#x7684;_&#x8BF7;&#x7565;&#x8FC7;&#x2026;">&#x7FFB;&#x5899;&#x51FA;&#x53BB;&#xFF0C;&#x627E;&#x5230;&#x7684;&#x4E00;&#x7BC7;&#x6587;&#x7AE0;&#x3002;&#x6BD4;&#x8F83;&#x597D;&#xFF0C;&#x968F;&#x624B;&#x5C31;copy &#x5206;&#x4EAB;&#x7ED9;&#x5927;&#x5BB6;&#x3002;&#x82F1;&#x6587;&#x4E0D;&#x597D;&#x7684;  &#x8BF7;&#x7565;&#x8FC7;&#x2026;</h5><p>For vs. Foreach. For and foreach differ slightly in performance. They are approximately the same speed. But the foreach loop uses more stack space for local variables. In this comparison, we strive to understand the exact difference in the two loops.</p>
+	
+		<h5 id="&#x7FFB;&#x5899;&#x51FA;&#x53BB;&#xFF0C;&#x627E;&#x5230;&#x7684;&#x4E00;&#x7BC7;&#x6587;&#x7AE0;&#x3002;&#x6BD4;&#x8F83;&#x597D;&#xFF0C;&#x968F;&#x624B;&#x5C31;copy_&#x5206;&#x4EAB;&#x7ED9;&#x5927;&#x5BB6;&#x3002;&#x82F1;&#x6587;&#x4E0D;&#x597D;&#x7684;_&#x8BF7;&#x7565;&#x8FC7;&#x2026;">&#x7FFB;&#x5899;&#x51FA;&#x53BB;&#xFF0C;&#x627E;&#x5230;&#x7684;&#x4E00;&#x7BC7;&#x6587;&#x7AE0;&#x3002;&#x6BD4;&#x8F83;&#x597D;&#xFF0C;&#x968F;&#x624B;&#x5C31;copy &#x5206;&#x4EAB;&#x7ED9;&#x5927;&#x5BB6;&#x3002;&#x82F1;&#x6587;&#x4E0D;&#x597D;&#x7684;  &#x8BF7;&#x7565;&#x8FC7;&#x2026;</h5><p>For vs. Foreach. For and foreach differ slightly in performance. They are approximately the same speed. But the foreach loop uses more stack space for local variables. In this comparison, we strive to understand the exact difference in the two loops.</p>
 <p>Comparison. First, let&#x2019;s look at the version of the loop that uses the for loop (Method1) and the version that uses the foreach-loop (Method2). Each method sums all the elements in an integer array.<br><strong>For loop version: Method1</strong><br><figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">static</span> <span class="keyword">int</span> <span class="title">Method1</span>(<span class="params"><span class="keyword">int</span>[] array</span>)</span><br><span class="line"></span>{</span><br><span class="line">    <span class="keyword">int</span> a = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; array.Length; i++)</span><br><span class="line">    {</span><br><span class="line">	a += array[i];</span><br><span class="line">    }</span><br><span class="line">    <span class="keyword">return</span> a;</span><br><span class="line">}</span><br></pre></td></tr></table></figure></p>
 <p><strong>Foreach loop version: Method2</strong><br><figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">static</span> <span class="keyword">int</span> <span class="title">Method2</span>(<span class="params"><span class="keyword">int</span>[] array</span>)</span><br><span class="line"></span>{</span><br><span class="line">    <span class="keyword">int</span> a = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">foreach</span> (<span class="keyword">int</span> <span class="keyword">value</span> <span class="keyword">in</span> array)</span><br><span class="line">    {</span><br><span class="line">	a += <span class="keyword">value</span>;</span><br><span class="line">    }</span><br><span class="line">    <span class="keyword">return</span> a;</span><br><span class="line">}</span><br></pre></td></tr></table></figure></p>
 <p>Difference. In .NET 4.0, we see a difference in the IL. The Method1 version uses enough stack space for only two local variables (a and i). The Method2 version uses stack space for four locals (a, value, and two compiler-generated temporaries).<br>IL<br>When a method is called in the Common Language Runtime, all of the memory required for the locals is allocated upon the stack. Because this takes place on the stack, this process is fast, but it is not free.<br>Thus:The foreach-loop will incur a small cost due to its extra two local variables.</p>
@@ -151,10 +157,7 @@ var _hmt = _hmt || [];
 
 	
 	</div>
-	
-  
-</div>
-	<a type="button" href="/2015/08/16/2015-08-16-for-foreach/#more" class="btn btn-default more">阅读此文</a>
+  <a type="button" href="/2015/08/16/2015-08-16-for-foreach/#more" class="btn btn-default more">阅读此文</a>
 </div>
 
 		
@@ -191,10 +194,14 @@ var _hmt = _hmt || [];
 		<div class="col-md-3">
 	<div id="sidebar">
 	
-			<div class="form-group has-success has-feedback">
+			
+  <div id="site_search">
+   <div class="form-group">
+    <input type="text" id="local-search-input" name="q" results="0" placeholder="搜索" class="st-search-input st-default-search-input form-control"/>
+   </div>  
+  <div id="local-search-result"></div>
+  </div>
 
- <input type="search" name="q" results="0" placeholder="搜索" class="form-control" id="searchSite">
-</div>
 
 		
 			
@@ -221,19 +228,19 @@ var _hmt = _hmt || [];
 		<h4>标签云</h4>
 		<ul class="tag_box inline list-unstyled">		
 		
-			<li><a href="/tags/习惯/">习惯<span>1</span></a></li>
-		
 			<li><a href="/tags/闭包/">闭包<span>1</span></a></li>
+		
+			<li><a href="/tags/c/">c#<span>2</span></a></li>
 		
 			<li><a href="/tags/IL/">IL<span>1</span></a></li>
 		
 			<li><a href="/tags/随笔/">随笔<span>1</span></a></li>
 		
-			<li><a href="/tags/GC/">GC<span>1</span></a></li>
-		
-			<li><a href="/tags/c/">c#<span>2</span></a></li>
+			<li><a href="/tags/习惯/">习惯<span>1</span></a></li>
 		
 			<li><a href="/tags/sql/">sql<span>1</span></a></li>
+		
+			<li><a href="/tags/GC/">GC<span>1</span></a></li>
 		
 		 
 		</ul>
@@ -290,7 +297,16 @@ var _hmt = _hmt || [];
 <p class="ds-recent-comments" data-num-items="10" data-show-avatars="1" data-show-time="1" data-show-admin="1" data-excerpt-length="70">
 </p>
 </div>
-
+	<script type="text/javascript">
+	    var duoshuoQuery = { short_name: 'bytes1001' };
+	    (function() {
+	    var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = 'http://static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(ds);
+		})();
+	</script>
 		
 	</div> <!-- sidebar -->
 </div> <!-- col-md-3 -->
@@ -298,28 +314,19 @@ var _hmt = _hmt || [];
 	
 	
 </div> <!-- row-fluid -->
+
 	</div>
   </div>
   <div class="container-narrow">
   <footer> <p>
   &copy; 2016 chaofan.cui
   
-     <span id="busuanzi_container_site_uv">
-     本站访客数<span id="busuanzi_value_site_uv"></span>
-</span>    
-</p>
-
-<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
-</script>
-<script type="text/javascript">
-  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
-  (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
-  e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
-  })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
-
-  _st('install','v8agv7ryjYaDH8Ffb_LA','2.0.0');
-</script> </footer>
+      with help from <a href="http://hexo.io/" target="_blank">Hexo</a> and <a href="http://getbootstrap.com/" target="_blank">Twitter Bootstrap</a>. Theme by <a href="http://github.com/wzpan/hexo-theme-freemind/">Freemind</a>.    
+</p> </footer>
 </div> <!-- container-narrow -->
+  
+
+
   
 <a id="gotop" href="#">   
   <span>▲</span> 
@@ -329,19 +336,7 @@ var _hmt = _hmt || [];
 <script src="/js/gallery.js"></script>
 <script src="/js/bootstrap.min.js"></script>
 <script src="/js/main.js"></script>
-
-
-<script type="text/javascript">
-  var duoshuoQuery = { short_name: 'bytes1001' };
-  (function() {
-    var ds = document.createElement('script');
-    ds.type = 'text/javascript';
-    ds.async = true;
-    ds.src = 'http://static.duoshuo.com/embed.js';
-    ds.charset = 'UTF-8';
-    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(ds);
-  })();
-</script>
+<script src="/js/search.js"></script> 
 
 
 <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
@@ -352,6 +347,16 @@ var _hmt = _hmt || [];
 })(jQuery);
 </script>
 
+
+
+   <script type="text/javascript">      
+     var search_path = "search.xml";
+	 if (search_path.length == 0) {
+	 	search_path = "search.xml";
+	 }
+	 var path = "/" + search_path;
+     searchFunc(path, 'local-search-input', 'local-search-result');
+   </script>
 
 </body>
    </html>

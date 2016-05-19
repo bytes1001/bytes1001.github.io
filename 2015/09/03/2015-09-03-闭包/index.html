@@ -24,10 +24,12 @@
   
     <link href="/favicon.ico" rel="icon">
   
-  
-  <link rel="stylesheet" href="/css/bootstrap.min.css" media="screen" type="text/css">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/css/themes/cerulean.css" media="screen" type="text/css">
   <link rel="stylesheet" href="/css/font-awesome.css" media="screen" type="text/css">
   <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/responsive.css" media="screen" type="text/css">
   <link rel="stylesheet" href="/css/highlight.css" media="screen" type="text/css">
   <link rel="stylesheet" href="/css/google-fonts.css" media="screen" type="text/css">
   <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
@@ -48,18 +50,19 @@ var _hmt = _hmt || [];
 })();
 </script>
 
+
 </head>
 
  <body>  
-  <nav id="main-nav" class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+  <nav id="main-nav" class="navbar  navbar-default navbar-fixed-top" role="navigation">
     <div class="container">
       <button type="button" class="navbar-header navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-		<span class="sr-only">Toggle navigation</span>
+	<span class="sr-only">Toggle navigation</span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-	  <a class="navbar-brand" href="/">平凡之路</a>
+       <a class="navbar-brand" href="/">平凡之路</a>
       <div class="collapse navbar-collapse nav-menu">
 		<ul class="nav navbar-nav">
 		  
@@ -88,13 +91,18 @@ var _hmt = _hmt || [];
 		  </li>
 		  
 		  <li>
+			<a href="/message" title="All the tags.">
+			  <i class="fa fa-pencil"></i>给我留言
+			</a>
+		  </li>
+		  
+		  <li>
 			<a href="/atom.xml" title="RSS">
 			  <i class="fa fa-rss-square"></i>RSS
 			</a>
 		  </li>
 		  
 		</ul>
-		
       </div>
     </div> <!-- container -->
 </nav>
@@ -106,24 +114,28 @@ var _hmt = _hmt || [];
 
 
 	
-		<div class="page-header">		
-			<h1> 闭包</h1>
+		<div class="page-header ">		
+			<h1 class="title "> 闭包</h1>
 		</div>		
 	
+
+
+
 
 
 
 <div class="row post">
 	<!-- cols -->
 	
+	<div id="top_meta"></div>
 	<div class="col-md-9">
 	
 
-			
-
 	<!-- content -->
 	<div class="mypage">		
-	    <p>&#x6628;&#x5929;&#x5728;&#x516C;&#x53F8;&#x7FA4;&#x91CC;&#x6709;&#x540C;&#x4E8B;&#x804A;&#x5230;&#x95ED;&#x5305;&#xFF0C;&#x4E0D;&#x6E05;&#x695A;&#x6709;&#x4EC0;&#x4E48;&#x7528;&#xFF0C;&#x4E8E;&#x662F;&#x7CFB;&#x7EDF;&#x5B66;&#x4E60;&#x4E00;&#x756A;&#x5173;&#x4E8E;&#x95ED;&#x5305;&#x7684;&#x77E5;&#x8BC6;&#x3002;</p>
+	  		
+
+	  <p>&#x6628;&#x5929;&#x5728;&#x516C;&#x53F8;&#x7FA4;&#x91CC;&#x6709;&#x540C;&#x4E8B;&#x804A;&#x5230;&#x95ED;&#x5305;&#xFF0C;&#x4E0D;&#x6E05;&#x695A;&#x6709;&#x4EC0;&#x4E48;&#x7528;&#xFF0C;&#x4E8E;&#x662F;&#x7CFB;&#x7EDF;&#x5B66;&#x4E60;&#x4E00;&#x756A;&#x5173;&#x4E8E;&#x95ED;&#x5305;&#x7684;&#x77E5;&#x8BC6;&#x3002;</p>
 <h4 id="1-&#x4EC0;&#x4E48;&#x662F;&#x95ED;&#x5305;">1.&#x4EC0;&#x4E48;&#x662F;&#x95ED;&#x5305;</h4><blockquote>
 <p> &#x5728;&#x8BA1;&#x7B97;&#x673A;&#x79D1;&#x5B66;&#x4E2D;&#xFF0C;&#x95ED;&#x5305;&#xFF08;Closure&#xFF09;&#x662F;&#x8BCD;&#x6CD5;&#x95ED;&#x5305;&#xFF08;Lexical Closure&#xFF09;&#x7684;&#x7B80;&#x79F0;&#xFF0C;&#x662F;&#x5F15;&#x7528;&#x4E86;&#x81EA;&#x7531;&#x53D8;&#x91CF;&#x7684;&#x51FD;&#x6570;&#x3002;&#x8FD9;&#x4E2A;&#x88AB;&#x5F15;&#x7528;&#x7684;&#x81EA;&#x7531;&#x53D8;&#x91CF;&#x5C06;&#x548C;&#x8FD9;&#x4E2A;&#x51FD;&#x6570;&#x4E00;&#x540C;&#x5B58;&#x5728;&#xFF0C;&#x5373;&#x4F7F;&#x5DF2;&#x7ECF;&#x79BB;&#x5F00;&#x4E86;&#x521B;&#x9020;&#x5B83;&#x7684;&#x73AF;&#x5883;&#x4E5F;&#x4E0D;&#x4F8B;&#x5916;&#x3002;&#x6240;&#x4EE5;&#xFF0C;&#x6709;&#x53E6;&#x4E00;&#x79CD;&#x8BF4;&#x6CD5;&#x8BA4;&#x4E3A;&#x95ED;&#x5305;&#x662F;&#x7531;&#x51FD;&#x6570;&#x548C;&#x4E0E;&#x5176;&#x76F8;&#x5173;&#x7684;&#x5F15;&#x7528;&#x73AF;&#x5883;&#x7EC4;&#x5408;&#x800C;&#x6210;&#x7684;&#x5B9E;&#x4F53;&#x3002;&#x95ED;&#x5305;&#x5728;&#x8FD0;&#x884C;&#x65F6;&#x53EF;&#x4EE5;&#x6709;&#x591A;&#x4E2A;&#x5B9E;&#x4F8B;&#xFF0C;&#x4E0D;&#x540C;&#x7684;&#x5F15;&#x7528;&#x73AF;&#x5883;&#x548C;&#x76F8;&#x540C;&#x7684;&#x51FD;&#x6570;&#x7EC4;&#x5408;&#x53EF;&#x4EE5;&#x4EA7;&#x751F;&#x4E0D;&#x540C;&#x7684;&#x5B9E;&#x4F8B;&#x3002;<br> </p><p style="text-align:right;">&#x2013;&#x5F15;&#x81EA;&#x7EF4;&#x57FA;&#x767E;&#x79D1;</p><p></p>
 </blockquote>
@@ -136,11 +148,10 @@ var _hmt = _hmt || [];
 <p>b.&#x5B9E;&#x73B0;&#x9762;&#x5411;&#x5BF9;&#x8C61;&#x8BBE;&#x8BA1;&#x98CE;&#x683C;</p>
 <p>&#x4F20;&#x7EDF;&#x7684;&#x5BF9;&#x8C61;&#x8BED;&#x8A00;&#x5982;java&#x3001; c# &#x90FD;&#x63D0;&#x4F9B;&#x4E86;&#x7C7B;&#x7684;&#x6A21;&#x677F;&#x673A;&#x5236;&#x6765;&#x521B;&#x5EFA;&#x5BF9;&#x8C61;&#x3002;&#x867D;&#x7136;js&#x662F;&#x9762;&#x5411;&#x8FC7;&#x7A0B;&#x8BBE;&#x8BA1;&#x7684;&#x8BED;&#x8A00;&#xFF0C;&#x4F46;&#x662F;&#x901A;&#x8FC7;&#x95ED;&#x5305;&#x7684;&#x65B9;&#x5F0F;&#xFF0C;&#x4E5F;&#x53EF;&#x4EE5;&#x6A21;&#x62DF;&#x51FA;&#x9762;&#x5411;&#x5BF9;&#x8C61;&#x7684;&#x7279;&#x70B9;&#x3002;&#x5982;&#x5C5E;&#x6027;&#x5C01;&#x88C5;&#xFF0C;&#x7C7B;&#x7684;&#x5B9E;&#x4F8B;&#x3002;</p>
 <figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> person = <span class="function"><span class="keyword">function</span><span class="params">()</span></span>{  </span><br><span class="line">    </span><br><span class="line">    <span class="keyword">var</span> name = <span class="string">&quot;ccf&quot;</span>; <span class="comment">//&#x53D8;&#x91CF;&#x4F5C;&#x7528;&#x57DF;&#x4E3A;&#x51FD;&#x6570;&#x5185;&#x90E8;&#xFF0C;&#x5916;&#x90E8;&#x65E0;&#x6CD5;&#x8BBF;&#x95EE;      </span></span><br><span class="line">     </span><br><span class="line">    <span class="keyword">return</span> {  </span><br><span class="line">       getName : <span class="function"><span class="keyword">function</span><span class="params">()</span></span>{  </span><br><span class="line">           <span class="keyword">return</span> name;  </span><br><span class="line">       },  </span><br><span class="line">       setName : <span class="function"><span class="keyword">function</span><span class="params">(newName)</span></span>{  </span><br><span class="line">           name = newName;  </span><br><span class="line">       }  </span><br><span class="line">    }  </span><br><span class="line">}();  </span><br><span class="line">   </span><br><span class="line"><span class="keyword">print</span>(person.name);<span class="comment">//&#x76F4;&#x63A5;&#x8BBF;&#x95EE;&#xFF0C;&#x7ED3;&#x679C;&#x4E3A;undefined  </span></span><br><span class="line"><span class="keyword">print</span>(person.getName());  </span><br><span class="line">person.setName(<span class="string">&quot;abruzzi&quot;</span>);  </span><br><span class="line"><span class="keyword">print</span>(person.getName());  </span><br><span class="line"> </span><br><span class="line">&#x5F97;&#x5230;&#x7ED3;&#x679C;&#x5982;&#x4E0B;&#xFF1A;</span><br><span class="line"> </span><br><span class="line">undefined</span><br><span class="line">ccf</span><br><span class="line">abruzzi</span><br><span class="line"></span><br><span class="line"><span class="comment">//&#x4E0B;&#x9762;&#x8FD9;&#x6BB5;&#x4EE3;&#x7801;&#x6F14;&#x793A;p1 p2 &#x662F;&#x51FD;&#x6570;person&#x7684;&#x5B9E;&#x4F8B;&#x3002;&#x76F8;&#x4E92;&#x72EC;&#x7ACB;&#x3002;</span></span><br><span class="line"><span class="keyword">var</span> p1=person();</span><br><span class="line">p1.setName(<span class="string">&quot;p1&quot;</span>);</span><br><span class="line"><span class="keyword">var</span> p2=person();</span><br><span class="line">p2.setName(<span class="string">&quot;p2&quot;</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">print</span>(p1.getName);<span class="comment">//p1</span></span><br><span class="line"><span class="keyword">print</span>(p2.getName);<span class="comment">//p2</span></span><br></pre></td></tr></table></figure>
-	 
+	  
 	</div>
 
 	<div>
-	<span id="busuanzi_container_page_pv" style='display:none' >阅读量<span id="busuanzi_value_page_pv"></span></span>
   	<center>
 	<div class="pagination">
 <ul class="pagination">
@@ -161,6 +172,30 @@ var _hmt = _hmt || [];
     </center>
 	</div>
 
+    <!-- share -->
+    
+        
+    <div class="bdsharebuttonbox">
+        <a href="#" class="bds_more" data-cmd="more"></a>
+        <a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+        <a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+        <a href="#" class="bds_fbook" data-cmd="fbook" title="分享到Facebook"></a>
+        <a href="#" class="bds_twi" data-cmd="twi" title="分享到Twitter"></a>
+        <a href="#" class="bds_linkedin" data-cmd="linkedin" title="分享到linkedin"></a>
+        <a href="#" class="bds_evernotecn" data-cmd="evernotecn" title="分享到印象笔记"></a>
+        <a href="#" class="bds_youdao" data-cmd="youdao" title="分享到有道云笔记"></a>
+        <a href="#" class="bds_copy" data-cmd="copy" title="分享到复制网址"></a>
+    </div>
+    <script>
+        window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"1","bdSize":"24"},"share":{}};
+        with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+    </script>
+
+
+        
+
+    
+	
 	<!-- comment -->
 	
 <section id="comment">
@@ -171,11 +206,11 @@ var _hmt = _hmt || [];
   
 </section>
 
-	
 	</div> <!-- col-md-9/col-md-12 -->
+		
 	
-	
-		<div class="col-md-3"> 
+	<div id="side_meta">
+		<div class="col-md-3" id="post_meta"> 
 
 	<!-- date -->
 	
@@ -219,43 +254,10 @@ var _hmt = _hmt || [];
 	
 </div><!-- col-md-3 -->
 
-	
+	</div>
+		
 
 </div><!-- row -->
-
-
-	</div>
-  </div>
-  <div class="container-narrow">
-  <footer> <p>
-  &copy; 2016 chaofan.cui
-  
-     <span id="busuanzi_container_site_uv">
-     本站访客数<span id="busuanzi_value_site_uv"></span>
-</span>    
-</p>
-
-<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
-</script>
-<script type="text/javascript">
-  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
-  (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
-  e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
-  })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
-
-  _st('install','v8agv7ryjYaDH8Ffb_LA','2.0.0');
-</script> </footer>
-</div> <!-- container-narrow -->
-  
-<a id="gotop" href="#">   
-  <span>▲</span> 
-</a>
-
-<script src="/js/jquery.imagesloaded.min.js"></script>
-<script src="/js/gallery.js"></script>
-<script src="/js/bootstrap.min.js"></script>
-<script src="/js/main.js"></script>
-
 
 <script type="text/javascript">
   var duoshuoQuery = { short_name: 'bytes1001' };
@@ -270,6 +272,31 @@ var _hmt = _hmt || [];
 </script>
 
 
+
+	</div>
+  </div>
+  <div class="container-narrow">
+  <footer> <p>
+  &copy; 2016 chaofan.cui
+  
+      with help from <a href="http://hexo.io/" target="_blank">Hexo</a> and <a href="http://getbootstrap.com/" target="_blank">Twitter Bootstrap</a>. Theme by <a href="http://github.com/wzpan/hexo-theme-freemind/">Freemind</a>.    
+</p> </footer>
+</div> <!-- container-narrow -->
+  
+
+
+  
+<a id="gotop" href="#">   
+  <span>▲</span> 
+</a>
+
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+<script src="/js/main.js"></script>
+<script src="/js/search.js"></script> 
+
+
 <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
 <script src="/fancybox/jquery.fancybox.pack.js"></script>
 <script type="text/javascript">
@@ -278,6 +305,16 @@ var _hmt = _hmt || [];
 })(jQuery);
 </script>
 
+
+
+   <script type="text/javascript">      
+     var search_path = "search.xml";
+	 if (search_path.length == 0) {
+	 	search_path = "search.xml";
+	 }
+	 var path = "/" + search_path;
+     searchFunc(path, 'local-search-input', 'local-search-result');
+   </script>
 
 </body>
    </html>

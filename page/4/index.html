@@ -22,10 +22,12 @@
   
     <link href="/favicon.ico" rel="icon">
   
-  
-  <link rel="stylesheet" href="/css/bootstrap.min.css" media="screen" type="text/css">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/css/themes/cerulean.css" media="screen" type="text/css">
   <link rel="stylesheet" href="/css/font-awesome.css" media="screen" type="text/css">
   <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/responsive.css" media="screen" type="text/css">
   <link rel="stylesheet" href="/css/highlight.css" media="screen" type="text/css">
   <link rel="stylesheet" href="/css/google-fonts.css" media="screen" type="text/css">
   <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
@@ -46,18 +48,19 @@ var _hmt = _hmt || [];
 })();
 </script>
 
+
 </head>
 
  <body>  
-  <nav id="main-nav" class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+  <nav id="main-nav" class="navbar  navbar-default navbar-fixed-top" role="navigation">
     <div class="container">
       <button type="button" class="navbar-header navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-		<span class="sr-only">Toggle navigation</span>
+	<span class="sr-only">Toggle navigation</span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-	  <a class="navbar-brand" href="/">平凡之路</a>
+       <a class="navbar-brand" href="/">平凡之路</a>
       <div class="collapse navbar-collapse nav-menu">
 		<ul class="nav navbar-nav">
 		  
@@ -86,13 +89,18 @@ var _hmt = _hmt || [];
 		  </li>
 		  
 		  <li>
+			<a href="/message" title="All the tags.">
+			  <i class="fa fa-pencil"></i>给我留言
+			</a>
+		  </li>
+		  
+		  <li>
 			<a href="/atom.xml" title="RSS">
 			  <i class="fa fa-rss-square"></i>RSS
 			</a>
 		  </li>
 		  
 		</ul>
-		
       </div>
     </div> <!-- container -->
 </nav>
@@ -100,8 +108,8 @@ var _hmt = _hmt || [];
 
   <div class="container">
   	<div class="content">
-    	 <div class="page-header">
-  <h1>coding</h1>
+    	 <div class="page-header ">
+  <h1 class="title ">coding</h1>
 </div>
 
 <div class="row page">
@@ -114,7 +122,7 @@ var _hmt = _hmt || [];
       <i class="fa fa-heart"></i>
       stay hungry,stay foolish
 </div>    
-
+		<div id="top_search"></div>
 		<div class="mypage">
 		
 		<!-- title and entry -->
@@ -131,11 +139,9 @@ var _hmt = _hmt || [];
 
 			<div class="entry">
   <div class="row">
-  
-	<div class="col-md-12">
-	  
 	
-	  <h4 id="&#x82F1;&#x6587;&#x539F;&#x6587;_&#xFF1A;10_habits_of_10x_developers">&#x82F1;&#x6587;&#x539F;&#x6587; &#xFF1A;<a href="http://adamloving.com/internet-programming/10x-developers" target="_blank" rel="external">10 habits of 10x developers</a></h4><p>Brad Feld&#x7684;&#x4E00;&#x7BC7;&#x6587;&#x7AE0;&#x300A;The Rise of Developeronomics&#x300B;&#x4E2D;&#x63D0;&#x5230;&#x4E86;&#x201C;10&#x500D;&#x6548;&#x7387;&#x7684;&#x5F00;&#x53D1;&#x4EBA;&#x5458;&#xFF08;10x developer&#xFF09;&#x201D;&#x7684;&#x6982;&#x5FF5;&#xFF08;&#x5353;&#x8D8A;&#x7684;&#x5F00;&#x53D1;&#x8005;&#x7684;&#x6548;&#x7387;&#x5F80;&#x5F80;&#x6BD4;&#x4E00;&#x822C;&#x7684;&#x5F00;&#x53D1;&#x8005;&#x9AD8;&#x5F88;&#x591A;&#xFF0C;&#x800C;&#x4E0D;&#x53EA;&#x662F;&#x4E00;&#x70B9;&#x70B9;&#xFF09;&#xFF0C;Adam Loving &#x5728;&#x8BFB;&#x4E86;&#x4E4B;&#x540E;&#x53D7;&#x5230;&#x542F;&#x53D1;&#xFF0C;&#x5E76;&#x5411;&#x591A;&#x4F4D;&#x5927;&#x725B;&#xFF08;Ben Sharpe&#x3001;Collin Watson&#x548C;Jonathan Locke&#xFF09;&#x8BE2;&#x95EE;&#x5982;&#x4F55;&#x6210;&#x4E3A;&#x201C;10&#x500D;&#x6548;&#x7387;&#x7684;&#x5F00;&#x53D1;&#x8005;&#x201D;&#xFF0C;&#x6700;&#x540E;&#x5F97;&#x5230;&#x4E86;&#x4EE5;&#x4E0B;&#x7684;&#x7B54;&#x6848;&#x3002;</p>
+	
+		<h4 id="&#x82F1;&#x6587;&#x539F;&#x6587;_&#xFF1A;10_habits_of_10x_developers">&#x82F1;&#x6587;&#x539F;&#x6587; &#xFF1A;<a href="http://adamloving.com/internet-programming/10x-developers" target="_blank" rel="external">10 habits of 10x developers</a></h4><p>Brad Feld&#x7684;&#x4E00;&#x7BC7;&#x6587;&#x7AE0;&#x300A;The Rise of Developeronomics&#x300B;&#x4E2D;&#x63D0;&#x5230;&#x4E86;&#x201C;10&#x500D;&#x6548;&#x7387;&#x7684;&#x5F00;&#x53D1;&#x4EBA;&#x5458;&#xFF08;10x developer&#xFF09;&#x201D;&#x7684;&#x6982;&#x5FF5;&#xFF08;&#x5353;&#x8D8A;&#x7684;&#x5F00;&#x53D1;&#x8005;&#x7684;&#x6548;&#x7387;&#x5F80;&#x5F80;&#x6BD4;&#x4E00;&#x822C;&#x7684;&#x5F00;&#x53D1;&#x8005;&#x9AD8;&#x5F88;&#x591A;&#xFF0C;&#x800C;&#x4E0D;&#x53EA;&#x662F;&#x4E00;&#x70B9;&#x70B9;&#xFF09;&#xFF0C;Adam Loving &#x5728;&#x8BFB;&#x4E86;&#x4E4B;&#x540E;&#x53D7;&#x5230;&#x542F;&#x53D1;&#xFF0C;&#x5E76;&#x5411;&#x591A;&#x4F4D;&#x5927;&#x725B;&#xFF08;Ben Sharpe&#x3001;Collin Watson&#x548C;Jonathan Locke&#xFF09;&#x8BE2;&#x95EE;&#x5982;&#x4F55;&#x6210;&#x4E3A;&#x201C;10&#x500D;&#x6548;&#x7387;&#x7684;&#x5F00;&#x53D1;&#x8005;&#x201D;&#xFF0C;&#x6700;&#x540E;&#x5F97;&#x5230;&#x4E86;&#x4EE5;&#x4E0B;&#x7684;&#x7B54;&#x6848;&#x3002;</p>
 <p><strong>1. &#x53EA;&#x505A;&#x9700;&#x8981;&#x505A;&#x7684;&#x5DE5;&#x4F5C;</strong></p>
 <p>&#x4F7F;&#x7528;&#x654F;&#x6377;&#x65B9;&#x6CD5;&#xFF1B;<br>&#x5168;&#x5FC3;&#x5168;&#x610F;&#x505A;UX&#x8BBE;&#x8BA1;&#xFF1B;<br>&#x6C9F;&#x901A;&#x7B2C;&#x4E00;&#xFF1B;<br>&#x7F16;&#x7801;&#x4E5F;&#x8BB8;&#x4E0D;&#x662F;&#x89E3;&#x51B3;&#x95EE;&#x9898;&#x7684;&#x529E;&#x6CD5;&#xFF1B;<br>&#x8FC7;&#x65E9;&#x7684;&#x4F18;&#x5316;&#x662F;&#x4E00;&#x5207;&#x7F6A;&#x6076;&#x7684;&#x6839;&#x6E90;&#xFF1B;<br>&#x9009;&#x62E9;&#x6700;&#x7B80;&#x5355;&#x7684;&#x89E3;&#x51B3;&#x65B9;&#x6848;&#x3002;</p>
 <p><strong>2. &#x7AD9;&#x5728;&#x5DE8;&#x4EBA;&#x7684;&#x80A9;&#x8180;&#x4E0A;</strong></p>
@@ -164,10 +170,7 @@ var _hmt = _hmt || [];
 
 	
 	</div>
-	
-  
-</div>
-	<a type="button" href="/2015/08/28/2015-08-28-10xdeveloper/#more" class="btn btn-default more">阅读此文</a>
+  <a type="button" href="/2015/08/28/2015-08-28-10xdeveloper/#more" class="btn btn-default more">阅读此文</a>
 </div>
 
 		
@@ -204,10 +207,14 @@ var _hmt = _hmt || [];
 		<div class="col-md-3">
 	<div id="sidebar">
 	
-			<div class="form-group has-success has-feedback">
+			
+  <div id="site_search">
+   <div class="form-group">
+    <input type="text" id="local-search-input" name="q" results="0" placeholder="搜索" class="st-search-input st-default-search-input form-control"/>
+   </div>  
+  <div id="local-search-result"></div>
+  </div>
 
- <input type="search" name="q" results="0" placeholder="搜索" class="form-control" id="searchSite">
-</div>
 
 		
 			
@@ -234,19 +241,19 @@ var _hmt = _hmt || [];
 		<h4>标签云</h4>
 		<ul class="tag_box inline list-unstyled">		
 		
-			<li><a href="/tags/sql/">sql<span>1</span></a></li>
-		
 			<li><a href="/tags/GC/">GC<span>1</span></a></li>
 		
 			<li><a href="/tags/闭包/">闭包<span>1</span></a></li>
 		
 			<li><a href="/tags/IL/">IL<span>1</span></a></li>
 		
+			<li><a href="/tags/c/">c#<span>2</span></a></li>
+		
+			<li><a href="/tags/sql/">sql<span>1</span></a></li>
+		
 			<li><a href="/tags/随笔/">随笔<span>1</span></a></li>
 		
 			<li><a href="/tags/习惯/">习惯<span>1</span></a></li>
-		
-			<li><a href="/tags/c/">c#<span>2</span></a></li>
 		
 		 
 		</ul>
@@ -303,7 +310,16 @@ var _hmt = _hmt || [];
 <p class="ds-recent-comments" data-num-items="10" data-show-avatars="1" data-show-time="1" data-show-admin="1" data-excerpt-length="70">
 </p>
 </div>
-
+	<script type="text/javascript">
+	    var duoshuoQuery = { short_name: 'bytes1001' };
+	    (function() {
+	    var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = 'http://static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(ds);
+		})();
+	</script>
 		
 	</div> <!-- sidebar -->
 </div> <!-- col-md-3 -->
@@ -311,28 +327,19 @@ var _hmt = _hmt || [];
 	
 	
 </div> <!-- row-fluid -->
+
 	</div>
   </div>
   <div class="container-narrow">
   <footer> <p>
   &copy; 2016 chaofan.cui
   
-     <span id="busuanzi_container_site_uv">
-     本站访客数<span id="busuanzi_value_site_uv"></span>
-</span>    
-</p>
-
-<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
-</script>
-<script type="text/javascript">
-  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
-  (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
-  e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
-  })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
-
-  _st('install','v8agv7ryjYaDH8Ffb_LA','2.0.0');
-</script> </footer>
+      with help from <a href="http://hexo.io/" target="_blank">Hexo</a> and <a href="http://getbootstrap.com/" target="_blank">Twitter Bootstrap</a>. Theme by <a href="http://github.com/wzpan/hexo-theme-freemind/">Freemind</a>.    
+</p> </footer>
 </div> <!-- container-narrow -->
+  
+
+
   
 <a id="gotop" href="#">   
   <span>▲</span> 
@@ -342,19 +349,7 @@ var _hmt = _hmt || [];
 <script src="/js/gallery.js"></script>
 <script src="/js/bootstrap.min.js"></script>
 <script src="/js/main.js"></script>
-
-
-<script type="text/javascript">
-  var duoshuoQuery = { short_name: 'bytes1001' };
-  (function() {
-    var ds = document.createElement('script');
-    ds.type = 'text/javascript';
-    ds.async = true;
-    ds.src = 'http://static.duoshuo.com/embed.js';
-    ds.charset = 'UTF-8';
-    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(ds);
-  })();
-</script>
+<script src="/js/search.js"></script> 
 
 
 <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
@@ -365,6 +360,16 @@ var _hmt = _hmt || [];
 })(jQuery);
 </script>
 
+
+
+   <script type="text/javascript">      
+     var search_path = "search.xml";
+	 if (search_path.length == 0) {
+	 	search_path = "search.xml";
+	 }
+	 var path = "/" + search_path;
+     searchFunc(path, 'local-search-input', 'local-search-result');
+   </script>
 
 </body>
    </html>
