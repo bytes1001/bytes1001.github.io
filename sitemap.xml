@@ -1,201 +1,79 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-
-    
+  
   <url>
     <loc>http://bytes1001.github.io/2016/05/23/%E9%80%86%E5%8F%98%E5%8D%8F%E5%8F%98/</loc>
-    <lastmod>2016-05-23T10:38:13.946Z</lastmod>
-    <data>
-        <display>
-        <title>逆变协变</title>
-        <pubTime>2016-05-22T21:53:46.000Z</pubTime>
-        
-        <tag>c# </tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-    
-    
+    <lastmod>2016-05-23T16:48:37.697Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://bytes1001.github.io/message/message.html</loc>
+    <lastmod>2016-05-18T20:14:29.057Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://bytes1001.github.io/message/index.html</loc>
+    <lastmod>2016-05-18T20:12:12.466Z</lastmod>
+  </url>
+  
   <url>
     <loc>http://bytes1001.github.io/2016/05/18/2016-05-18-test/</loc>
     <lastmod>2016-05-18T12:22:59.258Z</lastmod>
-    <data>
-        <display>
-        <title>test</title>
-        <pubTime>2016-05-18T12:19:24.000Z</pubTime>
-        
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
+  </url>
+  
   <url>
     <loc>http://bytes1001.github.io/2015/09/11/2015-09-11-IL%E8%A7%A3%E6%9E%90/</loc>
     <lastmod>2015-09-27T11:49:50.551Z</lastmod>
-    <data>
-        <display>
-        <title>IL解析</title>
-        <pubTime>2015-09-11T15:22:02.000Z</pubTime>
-        
-        <tag>IL </tag>
-         
-         
-           
-             
-              <breadCrumb title=".net基础" url="http://bytes1001.github.io/categories/net%E5%9F%BA%E7%A1%80/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
+  </url>
+  
   <url>
     <loc>http://bytes1001.github.io/2015/09/03/2015-09-03-%E9%97%AD%E5%8C%85/</loc>
     <lastmod>2015-09-03T16:08:12.458Z</lastmod>
-    <data>
-        <display>
-        <title>闭包</title>
-        <pubTime>2015-09-03T11:57:40.000Z</pubTime>
-        
-        <tag>闭包 </tag>
-         
-         
-           
-             
-              <breadCrumb title="编程概念" url="http://bytes1001.github.io/categories/%E7%BC%96%E7%A8%8B%E6%A6%82%E5%BF%B5/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
+  </url>
+  
   <url>
     <loc>http://bytes1001.github.io/2015/08/15/2015-08-15-dispose/</loc>
     <lastmod>2015-08-28T16:55:34.537Z</lastmod>
-    <data>
-        <display>
-        <title>Dispose模式</title>
-        <pubTime>2015-08-15T03:09:58.000Z</pubTime>
-        
-        <tag>GC </tag>
-         
-         
-           
-             
-              <breadCrumb title=".net基础" url="http://bytes1001.github.io/categories/net%E5%9F%BA%E7%A1%80/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
+  </url>
+  
   <url>
     <loc>http://bytes1001.github.io/2015/08/28/2015-08-28-10xdeveloper/</loc>
     <lastmod>2015-08-28T12:56:38.924Z</lastmod>
-    <data>
-        <display>
-        <title>10个习惯和10倍开发效率</title>
-        <pubTime>2015-08-28T12:33:15.000Z</pubTime>
-        
-        <tag>习惯 </tag>
-         
-         
-           
-             
-              <breadCrumb title="好文章" url="http://bytes1001.github.io/categories/%E5%A5%BD%E6%96%87%E7%AB%A0/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-    
+  </url>
+  
+  <url>
+    <loc>http://bytes1001.github.io/about/index.html</loc>
+    <lastmod>2015-08-27T15:04:55.862Z</lastmod>
+  </url>
+  
   <url>
     <loc>http://bytes1001.github.io/2015/08/27/2015-08-27-sql%E6%89%A7%E8%AF%AD%E5%8F%A5%E6%89%A7%E8%A1%8C%E9%A1%BA%E5%BA%8F/</loc>
     <lastmod>2015-08-27T12:23:44.383Z</lastmod>
-    <data>
-        <display>
-        <title>sql语句执行顺序</title>
-        <pubTime>2015-08-27T08:33:52.000Z</pubTime>
-        
-        <tag>sql </tag>
-         
-         
-           
-             
-              <breadCrumb title="sql" url="http://bytes1001.github.io/categories/sql/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
+  </url>
+  
   <url>
     <loc>http://bytes1001.github.io/2015/08/14/2015-08-06-cat/</loc>
     <lastmod>2015-08-18T02:59:10.755Z</lastmod>
-    <data>
-        <display>
-        <title>programer</title>
-        <pubTime>2015-08-14T01:38:09.000Z</pubTime>
-        
-        <tag>随笔 </tag>
-         
-         
-           
-             
-              <breadCrumb title="随笔" url="http://bytes1001.github.io/categories/%E9%9A%8F%E7%AC%94/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
+  </url>
+  
   <url>
     <loc>http://bytes1001.github.io/2015/08/16/2015-08-16-for-foreach/</loc>
     <lastmod>2015-08-17T01:55:17.229Z</lastmod>
-    <data>
-        <display>
-        <title>for vs foreach</title>
-        <pubTime>2015-08-16T07:40:24.000Z</pubTime>
-        
-        <tag>c# </tag>
-         
-         
-           
-             
-              <breadCrumb title=".net基础" url="http://bytes1001.github.io/categories/net%E5%9F%BA%E7%A1%80/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
+  </url>
+  
   <url>
     <loc>http://bytes1001.github.io/2015/08/17/2015-08-17-ienumerator/</loc>
     <lastmod>2015-08-17T01:43:35.979Z</lastmod>
-    <data>
-        <display>
-        <title>IEnumerator &IEnumerable</title>
-        <pubTime>2015-08-17T01:31:35.000Z</pubTime>
-        
-        <tag>c# </tag>
-         
-         
-           
-             
-              <breadCrumb title=".net基础" url="http://bytes1001.github.io/categories/net%E5%9F%BA%E7%A1%80/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-    
+  </url>
+  
+  <url>
+    <loc>http://bytes1001.github.io/tags/index.html</loc>
+    <lastmod>2015-08-13T09:31:29.029Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://bytes1001.github.io/categories/index.html</loc>
+    <lastmod>2015-08-13T09:28:42.508Z</lastmod>
+  </url>
+  
 </urlset>
