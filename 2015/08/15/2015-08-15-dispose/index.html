@@ -1,0 +1,315 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Dispose模式 | 平凡之路</title>
+  <meta name="author" content="chaofan.cui">
+  
+  <meta name="description" content="&amp;#x6211;&amp;#x4EEC;&amp;#x77E5;&amp;#x9053;&amp;#x5728;&amp;#x6258;&amp;#x7BA1;&amp;#x4EE3;&amp;#x7801;&amp;#x91CC;&amp;#x8C03;&amp;#x7528;&amp;#x975E;&amp;#x6258;&amp;#x7BA1;&amp;#x8D44;&amp;#x6E90;&amp;#x65F6;&amp;#xFF0">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <meta property="og:title" content="Dispose模式"/>
+  <meta property="og:site_name" content="平凡之路"/>
+
+  
+    <meta property="og:image" content="undefined"/>
+  
+
+  
+    <link rel="alternative" href="/atom.xml" title="平凡之路" type="application/atom+xml">
+  
+  
+    <link href="/favicon.ico" rel="icon">
+  
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/css/themes/cerulean.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/font-awesome.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/responsive.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/highlight.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/google-fonts.css" media="screen" type="text/css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+
+  <script src="/js/jquery-2.0.3.min.js"></script>
+
+  <!-- analytics -->
+  
+
+
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?9fa039175166f0b0f6d5d0bcfe1fd18b";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+
+</head>
+
+ <body>  
+  <nav id="main-nav" class="navbar  navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+      <button type="button" class="navbar-header navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+	<span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+       <a class="navbar-brand" href="/">平凡之路</a>
+      <div class="collapse navbar-collapse nav-menu">
+		<ul class="nav navbar-nav">
+		  
+		  <li>
+			<a href="/archives" title="所有文章">
+			  <i class="fa fa-archive"></i>文章
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/categories" title="所有分类">
+			  <i class="fa fa-folder"></i>分类
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/tags" title="所有标签">
+			  <i class="fa fa-tags"></i>标签
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/about" title="博主">
+			  <i class="fa fa-user"></i>博主
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/message" title="All the tags.">
+			  <i class="fa fa-pencil"></i>给我留言
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/atom.xml" title="RSS">
+			  <i class="fa fa-rss-square"></i>RSS
+			</a>
+		  </li>
+		  
+		</ul>
+      </div>
+    </div> <!-- container -->
+</nav>
+<div class="clearfix"></div>
+
+  <div class="container">
+  	<div class="content">
+    	 
+
+
+	
+		<div class="page-header ">		
+			<h1 class="title "> Dispose模式</h1>
+		</div>		
+	
+
+
+
+
+
+
+<div class="row post">
+	<!-- cols -->
+	
+	<div id="top_meta"></div>
+	<div class="col-md-9">
+	
+
+	<!-- content -->
+	<div class="mypage">		
+	  		
+
+	  <h4 id="&#x6211;&#x4EEC;&#x77E5;&#x9053;&#x5728;&#x6258;&#x7BA1;&#x4EE3;&#x7801;&#x91CC;&#x8C03;&#x7528;&#x975E;&#x6258;&#x7BA1;&#x8D44;&#x6E90;&#x65F6;&#xFF0C;&#x9700;&#x8981;&#x663E;&#x5F0F;&#x91CA;&#x653E;&#x975E;&#x6258;&#x7BA1;&#x8D44;&#x6E90;">&#x6211;&#x4EEC;&#x77E5;&#x9053;&#x5728;&#x6258;&#x7BA1;&#x4EE3;&#x7801;&#x91CC;&#x8C03;&#x7528;&#x975E;&#x6258;&#x7BA1;&#x8D44;&#x6E90;&#x65F6;&#xFF0C;&#x9700;&#x8981;&#x663E;&#x5F0F;&#x91CA;&#x653E;&#x975E;&#x6258;&#x7BA1;&#x8D44;&#x6E90;</h4><p>&#x6709;&#x4E24;&#x79CD;&#x65B9;&#x5F0F;&#xFF1A;</p>
+<p><strong>1.&#x4E3B;&#x52A8;&#x91CA;&#x653E;</strong>&#xFF08;<em>&#x8C03;&#x7528;&#x8005;&#x8C03;&#x7528;dispose</em>&#xFF09;</p>
+<p>&#x4F18;&#x70B9;&#xFF1A;&#x6548;&#x7387;&#x9AD8;&#xFF0C;&#x8D44;&#x6E90;&#x91CA;&#x653E;&#x5FEB;&#x3002;<br>&#x7F3A;&#x70B9;&#xFF1A;&#x8C03;&#x7528;&#x8005;&#x53EF;&#x80FD;&#x5FD8;&#x8BB0;&#x8C03;&#x7528;dispose&#x65B9;&#x6CD5;&#xFF0C;&#x9020;&#x6210;&#x8D44;&#x6E90;&#x6CA1;&#x6709;&#x91CA;&#x653E;</p>
+<p><strong>2.&#x88AB;&#x52A8;&#x91CA;&#x653E;</strong>&#xFF08;<em>&#x6790;&#x6784;&#x51FD;&#x6570;&#x91CC;dispose</em>&#xFF09;</p>
+<p>&#x4F18;&#x70B9;&#xFF1A;&#x5373;&#x4F7F;&#x8C03;&#x7528;&#x8005;&#x6CA1;&#x6709;&#x8C03;&#x7528;dispose&#x65B9;&#x6CD5;&#xFF0C;&#x8D44;&#x6E90;&#x4E5F;&#x4F1A;&#x5728;GC&#x7684;&#x65F6;&#x5019;dispose<br>&#x7F3A;&#x70B9;&#xFF1A;&#x6548;&#x7387;&#x4F4E;&#xFF0C;&#x4E0D;&#x77E5;&#x9053;GC&#x4EC0;&#x4E48;&#x65F6;&#x5019;&#x8FDB;&#x884C;&#xFF0C;&#x800C;&#x4E14;&#x8FD9;&#x79CD;&#x65B9;&#x5F0F;&#x4E5F;&#x589E;&#x52A0;&#x4E86;GC&#x7684;&#x8D1F;&#x62C5;</p>
+<p>&#x5FAE;&#x8F6F;&#x7684;.net&#x56E2;&#x961F;&#x7ED9;&#x51FA;&#x4E86;&#x8D44;&#x6E90;&#x91CA;&#x653E;&#x7684;Dispose&#x6A21;&#x5F0F;&#xFF0C;&#x517C;&#x987E;&#x4E86;&#x7C7B;&#x578B;&#x5B89;&#x5168;&#x6027;&#x4E0E;&#x6267;&#x884C;&#x6548;&#x7387;&#x3002;</p>
+<p>&#x4E0B;&#x9762;&#x662F;&#x6211;&#x5199;&#x7684;dispose&#x6A21;&#x5F0F;&#x5177;&#x4F53;&#x4F8B;&#x5B50;&#xFF0C;</p>
+<p>MyResourceWrapper&#x7C7B;&#x578B;&#x8C03;&#x7528;win api&#x5411;&#x5916;&#x90E8;&#x66B4;&#x9732;Graphics&#x3002;</p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">using</span> System;</span><br><span class="line"><span class="keyword">using</span> System.Collections.Generic;</span><br><span class="line"><span class="keyword">using</span> System.Drawing;</span><br><span class="line"><span class="keyword">using</span> System.Linq;</span><br><span class="line"><span class="keyword">using</span> System.Text;</span><br><span class="line"><span class="keyword">namespace</span> <span class="title">GC</span></span><br><span class="line">{</span><br><span class="line">    <span class="comment"><span class="xmlDocTag">///</span> <span class="xmlDocTag">&lt;summary&gt;</span></span></span><br><span class="line">    <span class="comment"><span class="xmlDocTag">///</span> &#x8FD9;&#x4E2A;&#x7C7B;&#x5305;&#x88C5;&#x4E86;&#x975E;&#x6258;&#x7BA1;&#x8D44;&#x6E90;&#x3002;</span></span><br><span class="line">    <span class="comment"><span class="xmlDocTag">///</span> <span class="xmlDocTag">&lt;/summary&gt;</span></span></span><br><span class="line">  <span class="keyword">public</span>  <span class="keyword">class</span> <span class="title">MyResourceWrapper</span>:<span class="title">IDisposable</span></span><br><span class="line">    {</span><br><span class="line">        <span class="keyword">private</span> IntPtr handle;<span class="comment">//&#x53E5;&#x67C4;,&#x975E;&#x6258;&#x7BA1;&#x8D44;&#x6E90;</span></span><br><span class="line">        <span class="keyword">public</span> Graphics Graphics</span><br><span class="line">        {</span><br><span class="line">            <span class="keyword">get</span></span><br><span class="line">            {</span><br><span class="line">                <span class="keyword">return</span> Graphics.FromHdc(handle);</span><br><span class="line">            }</span><br><span class="line">        }</span><br><span class="line">        <span class="keyword">private</span> <span class="keyword">bool</span> disposed = <span class="keyword">false</span>;</span><br><span class="line"> </span><br><span class="line">        MyResourceWrapper()</span><br><span class="line">        {</span><br><span class="line">            handle = GetDC(IntPtr.Zero);</span><br><span class="line">        }</span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">Dispose</span>(<span class="params"></span>)</span><br><span class="line">        </span>{</span><br><span class="line">            CleanUp(<span class="keyword">true</span>);<span class="comment">//&#x91CA;&#x653E;&#x8D44;&#x6E90;</span></span><br><span class="line">            System.GC.SuppressFinalize(<span class="keyword">this</span>);</span><br><span class="line">        }</span><br><span class="line">        <span class="comment">//&#x6790;&#x6784;&#x65B9;&#x6CD5;&#x5E94;&#x8BE5;&#x53EA;&#x91CA;&#x653E;&#x975E;&#x6258;&#x7BA1;&#x8D44;&#x6E90;&#x3002;&#x4E0D;&#x8981;&#x91CA;&#x653E;&#x6258;&#x7BA1;&#x8D44;&#x6E90;&#x3002;</span></span><br><span class="line">        <span class="comment">//&#x56E0;&#x4E3A;GC&#x56DE;&#x6536;&#x65F6;&#xFF0C;&#x6709;&#x53EF;&#x80FD;&#x6258;&#x7BA1;&#x7C7B;&#x578B;&#x5DF2;&#x7ECF;&#x88AB;&#x91CA;&#x653E;&#x6389;&#x3002;&#x4F1A;&#x5BFC;&#x81F4;&#x629B;&#x5F02;&#x5E38;&#x3002;</span></span><br><span class="line">        <span class="comment">//&#x5B9A;&#x4E49;&#x6790;&#x6784;&#x51FD;&#x6570;&#x4F1A;&#x5BFC;&#x81F4;&#x81F3;&#x5C11;&#x4E24;&#x6B21;&#x5783;&#x573E;&#x56DE;&#x6536;&#xFF0C;&#x6548;&#x80FD;&#x4F4E;&#x4E0B;&#x3002;</span></span><br><span class="line">        ~MyResourceWrapper()</span><br><span class="line">        {</span><br><span class="line">            CleanUp(<span class="keyword">false</span>);</span><br><span class="line">        }</span><br><span class="line">      <span class="comment"><span class="xmlDocTag">///</span> <span class="xmlDocTag">&lt;summary&gt;</span></span></span><br><span class="line">      <span class="comment"><span class="xmlDocTag">///</span></span></span><br><span class="line">      <span class="comment"><span class="xmlDocTag">///</span> <span class="xmlDocTag">&lt;/summary&gt;</span></span></span><br><span class="line">      <span class="comment"><span class="xmlDocTag">///</span> <span class="xmlDocTag">&lt;param name=&quot;flag&quot;&gt;</span>&#x6807;&#x8BC6;&#x6E05;&#x7406;&#x6258;&#x7BA1;&#x8D44;&#x6E90;&#x8FD8;&#x662F;&#x975E;&#x6258;&#x7BA1;&#x8D44;&#x6E90;<span class="xmlDocTag">&lt;/param&gt;</span></span></span><br><span class="line">        <span class="function"><span class="keyword">void</span> <span class="title">CleanUp</span>(<span class="params"><span class="keyword">bool</span> flag</span>)</span><br><span class="line">        </span>{</span><br><span class="line">            <span class="keyword">if</span> (!<span class="keyword">this</span>.disposed)</span><br><span class="line">            {</span><br><span class="line">                <span class="keyword">if</span> (flag)</span><br><span class="line">                {</span><br><span class="line">                    <span class="comment">//&#x91CA;&#x653E;&#x6258;&#x7BA1;&#x8D44;&#x6E90;</span></span><br><span class="line">                    Console.WriteLine(<span class="string">&quot;&#x6210;&#x529F;&#x91CA;&#x653E;&#x975E;&#x6258;&#x7BA1;&#x8D44;&#x6E90;&#xFF01;&quot;</span>);</span><br><span class="line">                }</span><br><span class="line">                <span class="comment">//&#x91CA;&#x653E;&#x975E;&#x6258;&#x7BA1;&#x8D44;&#x6E90;</span></span><br><span class="line">                ReleaseDC(IntPtr.Zero,handle);</span><br><span class="line">                Console.WriteLine(<span class="string">&quot;&#x6210;&#x529F;&#x91CA;&#x653E;&#x6258;&#x7BA1;&#x8D44;&#x6E90;&#xFF01;&quot;</span>);</span><br><span class="line">            }</span><br><span class="line">            disposed = <span class="keyword">true</span>;<span class="comment">//&#x5DF2;&#x7ECF;&#x6E05;&#x7406;</span></span><br><span class="line">        }</span><br><span class="line">      <span class="comment"><span class="xmlDocTag">///</span> <span class="xmlDocTag">&lt;summary&gt;</span></span></span><br><span class="line">      <span class="comment"><span class="xmlDocTag">///</span> &#x76EE;&#x7684;&#x5728;&#x4E8E;&#x8BF4;&#x660E;&#x8FD9;&#x4E2A;&#x7C7B;&#x7684;&#x9AD8;&#x6548;&#x7387;Dispose&#x6A21;&#x5F0F;&#x3002;</span></span><br><span class="line">      <span class="comment"><span class="xmlDocTag">///</span> <span class="xmlDocTag">&lt;/summary&gt;</span></span></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">Test</span>(<span class="params"></span>) </span>{</span><br><span class="line">            <span class="keyword">using</span> (<span class="keyword">var</span> re=<span class="keyword">new</span> MyResourceWrapper())</span><br><span class="line">            {</span><br><span class="line">                re.Graphics.DrawEllipse(<span class="keyword">new</span> Pen(Color.Red),<span class="number">100</span>,<span class="number">100</span>,<span class="number">300</span>,<span class="number">300</span>);</span><br><span class="line">            }</span><br><span class="line">         </span><br><span class="line">        }</span><br><span class="line">      <span class="comment"><span class="xmlDocTag">///</span> <span class="xmlDocTag">&lt;summary&gt;</span></span></span><br><span class="line">      <span class="comment"><span class="xmlDocTag">///</span> &#x76EE;&#x7684;&#x5728;&#x4E8E;&#x8BF4;&#x660E;&#x5F00;&#x53D1;&#x8005;&#x5FD8;&#x8BB0;&#x53BB;&#x8C03;&#x7528;dispose&#x65B9;&#x6CD5;&#x91CA;&#x653E;&#x8D44;&#x6E90;&#x4E86;&#x3002;</span></span><br><span class="line">      <span class="comment"><span class="xmlDocTag">///</span> <span class="xmlDocTag">&lt;/summary&gt;</span></span></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">TestFinalize</span>(<span class="params"></span>)</span><br><span class="line">        </span>{</span><br><span class="line">            <span class="keyword">var</span> re = <span class="keyword">new</span> MyResourceWrapper();</span><br><span class="line">            re.Graphics.DrawEllipse(<span class="keyword">new</span> Pen(Color.Red), <span class="number">100</span>, <span class="number">100</span>, <span class="number">300</span>, <span class="number">300</span>);</span><br><span class="line">            re = <span class="keyword">null</span>;</span><br><span class="line">            System.GC.Collect();</span><br><span class="line">            System.GC.WaitForPendingFinalizers();</span><br><span class="line">        }</span><br><span class="line">        [System.Runtime.InteropServices.DllImport(<span class="string">&quot;User32.dll&quot;</span>)]</span><br><span class="line">         <span class="function"><span class="keyword">static</span> <span class="keyword">extern</span> IntPtr <span class="title">GetDC</span>(<span class="params">IntPtr Hwnd</span>)</span>;</span><br><span class="line"> </span><br><span class="line">        [System.Runtime.InteropServices.DllImport(<span class="string">&quot;User32.dll&quot;</span>)]</span><br><span class="line">         <span class="function"><span class="keyword">static</span>  <span class="keyword">extern</span> <span class="keyword">int</span> <span class="title">ReleaseDC</span>(<span class="params">IntPtr hWnd, IntPtr hDC</span>)</span>;</span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></table></figure>	  
+	</div>
+
+	<div>
+  	<center>
+	<div class="pagination">
+<ul class="pagination">
+	 
+				
+    	<li class="prev"><a href="/2015/08/16/2015-08-16-for-foreach/" class="alignleft prev"><i class="fa fa-arrow-circle-o-left"></i>上一页</a></li>
+  		
+
+        <li><a href="/archives"><i class="fa fa-archive"></i>Archive</a></li>
+
+		
+		   <li class="next"><a href="/2015/08/14/2015-08-06-cat/" class="alignright next">下一页<i class="fa fa-arrow-circle-o-right"></i></a></li>         
+        
+	
+</ul>
+</div>
+
+    </center>
+	</div>
+
+    <!-- share -->
+    
+        
+    <div class="bdsharebuttonbox">
+        <a href="#" class="bds_more" data-cmd="more"></a>
+        <a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+        <a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+        <a href="#" class="bds_fbook" data-cmd="fbook" title="分享到Facebook"></a>
+        <a href="#" class="bds_twi" data-cmd="twi" title="分享到Twitter"></a>
+        <a href="#" class="bds_linkedin" data-cmd="linkedin" title="分享到linkedin"></a>
+        <a href="#" class="bds_evernotecn" data-cmd="evernotecn" title="分享到印象笔记"></a>
+        <a href="#" class="bds_youdao" data-cmd="youdao" title="分享到有道云笔记"></a>
+        <a href="#" class="bds_copy" data-cmd="copy" title="分享到复制网址"></a>
+    </div>
+    <script>
+        window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"1","bdSize":"24"},"share":{}};
+        with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+    </script>
+
+
+        
+
+    
+	
+	<!-- comment -->
+	
+<section id="comment">
+  <h2 class="title">留言</h2>
+
+  
+  	 <div class="ds-thread" data-thread-key="2015/08/15/2015-08-15-dispose/" data-title="Dispose模式" data-url="http://bytes1001.github.io/2015/08/15/2015-08-15-dispose/"></div>  
+  
+</section>
+
+	</div> <!-- col-md-9/col-md-12 -->
+		
+	
+	<div id="side_meta">
+		<div class="col-md-3" id="post_meta"> 
+
+	<!-- date -->
+	
+	<div class="meta-widget">
+	<i class="fa fa-clock-o"></i>
+	2015-08-15 
+	</div>
+	
+
+	<!-- categories -->
+    
+	<div class="meta-widget">
+	<a data-toggle="collapse" data-target="#categorys"><i class="fa fa-folder"></i></a>	
+    <ul id="categorys" class="tag_box list-unstyled collapse in">
+          
+  <li>
+    <li><a href="/categories/net基础/">.net基础<span>4</span></a></li>
+  </li>
+
+    </ul>
+	</div>
+	
+
+	<!-- tags -->
+	
+	<div class="meta-widget">
+	<a data-toggle="collapse" data-target="#tags"><i class="fa fa-tags"></i></a>		  
+    <ul id="tags" class="tag_box list-unstyled collapse in">	  
+	    
+  <li><a href="/tags/GC/">GC<span>1</span></a></li>
+    </ul>
+	</div>
+		
+
+	<!-- toc -->
+	<div class="meta-widget">
+	
+	</div>
+	
+    <hr>
+	
+</div><!-- col-md-3 -->
+
+	</div>
+		
+
+</div><!-- row -->
+
+<script type="text/javascript">
+  var duoshuoQuery = { short_name: 'bytes1001' };
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';
+    ds.async = true;
+    ds.src = 'http://static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+</script>
+
+
+
+	</div>
+  </div>
+  <div class="container-narrow">
+  <footer> <p>
+  &copy; 2016 chaofan.cui
+  
+      coding my life.
+</p> </footer>
+</div> <!-- container-narrow -->
+  
+
+
+  
+<a id="gotop" href="#">   
+  <span>▲</span> 
+</a>
+
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+<script src="/js/main.js"></script>
+<script src="/js/search.js"></script> 
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+
+
+   <script type="text/javascript">      
+     var search_path = "search.xml";
+	 if (search_path.length == 0) {
+	 	search_path = "search.xml";
+	 }
+	 var path = "/" + search_path;
+     searchFunc(path, 'local-search-input', 'local-search-result');
+   </script>
+
+</body>
+   </html>
