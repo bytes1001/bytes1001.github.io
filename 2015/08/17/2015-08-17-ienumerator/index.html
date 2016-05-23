@@ -1,0 +1,317 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>IEnumerator &amp;IEnumerable | 平凡之路</title>
+  <meta name="author" content="chaofan.cui">
+  
+  <meta name="description" content="&amp;#x5148;&amp;#x770B;&amp;#x770B;IEnumerator &amp;#x548C;IEnumerable&amp;#x7684;&amp;#x63A5;&amp;#x53E3;&amp;#x5B9A;&amp;#x4E49;:
+12345678910111213141516171819202122232425262728293031">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <meta property="og:title" content="IEnumerator &amp;IEnumerable"/>
+  <meta property="og:site_name" content="平凡之路"/>
+
+  
+    <meta property="og:image" content="undefined"/>
+  
+
+  
+    <link rel="alternative" href="/atom.xml" title="平凡之路" type="application/atom+xml">
+  
+  
+    <link href="/favicon.ico" rel="icon">
+  
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/css/themes/cerulean.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/font-awesome.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/responsive.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/highlight.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/google-fonts.css" media="screen" type="text/css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+
+  <script src="/js/jquery-2.0.3.min.js"></script>
+
+  <!-- analytics -->
+  
+
+
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?9fa039175166f0b0f6d5d0bcfe1fd18b";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+
+</head>
+
+ <body>  
+  <nav id="main-nav" class="navbar  navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+      <button type="button" class="navbar-header navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+	<span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+       <a class="navbar-brand" href="/">平凡之路</a>
+      <div class="collapse navbar-collapse nav-menu">
+		<ul class="nav navbar-nav">
+		  
+		  <li>
+			<a href="/archives" title="所有文章">
+			  <i class="fa fa-archive"></i>文章
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/categories" title="所有分类">
+			  <i class="fa fa-folder"></i>分类
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/tags" title="所有标签">
+			  <i class="fa fa-tags"></i>标签
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/about" title="博主">
+			  <i class="fa fa-user"></i>博主
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/message" title="All the tags.">
+			  <i class="fa fa-pencil"></i>给我留言
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/atom.xml" title="RSS">
+			  <i class="fa fa-rss-square"></i>RSS
+			</a>
+		  </li>
+		  
+		</ul>
+      </div>
+    </div> <!-- container -->
+</nav>
+<div class="clearfix"></div>
+
+  <div class="container">
+  	<div class="content">
+    	 
+
+
+	
+		<div class="page-header ">		
+			<h1 class="title "> IEnumerator &amp;IEnumerable</h1>
+		</div>		
+	
+
+
+
+
+
+
+<div class="row post">
+	<!-- cols -->
+	
+	<div id="top_meta"></div>
+	<div class="col-md-9">
+	
+
+	<!-- content -->
+	<div class="mypage">		
+	  		
+
+	  <p>&#x5148;&#x770B;&#x770B;<strong>IEnumerator</strong> &#x548C;<strong>IEnumerable</strong>&#x7684;&#x63A5;&#x53E3;&#x5B9A;&#x4E49;:</p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">using</span> System.Runtime.InteropServices;</span><br><span class="line"><span class="keyword">namespace</span> <span class="title">System.Collections</span></span><br><span class="line">{</span><br><span class="line">    <span class="comment">// &#x6458;&#x8981;:</span></span><br><span class="line">    <span class="comment">//     &#x516C;&#x5F00;&#x679A;&#x4E3E;&#x6570;&#xFF0C;&#x8BE5;&#x679A;&#x4E3E;&#x6570;&#x652F;&#x6301;&#x5728;&#x975E;&#x6CDB;&#x578B;&#x96C6;&#x5408;&#x4E0A;&#x8FDB;&#x884C;&#x7B80;&#x5355;&#x8FED;&#x4EE3;&#x3002;</span></span><br><span class="line">    [ComVisible(<span class="keyword">true</span>)]</span><br><span class="line">    [Guid(<span class="string">&quot;496B0ABE-CDEE-11d3-88E8-00902754C43A&quot;</span>)]</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">interface</span> <span class="title">IEnumerable</span></span><br><span class="line">    {</span><br><span class="line">        <span class="comment">// &#x6458;&#x8981;:</span></span><br><span class="line">        <span class="comment">//     &#x8FD4;&#x56DE;&#x4E00;&#x4E2A;&#x5FAA;&#x73AF;&#x8BBF;&#x95EE;&#x96C6;&#x5408;&#x7684;&#x679A;&#x4E3E;&#x6570;&#x3002;</span></span><br><span class="line">        <span class="comment">//</span></span><br><span class="line">        <span class="comment">// &#x8FD4;&#x56DE;&#x7ED3;&#x679C;:</span></span><br><span class="line">        <span class="comment">//     &#x4E00;&#x4E2A;&#x53EF;&#x7528;&#x4E8E;&#x5FAA;&#x73AF;&#x8BBF;&#x95EE;&#x96C6;&#x5408;&#x7684; System.Collections.IEnumerator &#x5BF9;&#x8C61;&#x3002;</span></span><br><span class="line">        [DispId(-<span class="number">4</span>)]</span><br><span class="line">        <span class="function">IEnumerator <span class="title">GetEnumerator</span>(<span class="params"></span>)</span>;</span><br><span class="line">    }</span><br><span class="line"> </span><br><span class="line">    <span class="comment">// &#x6458;&#x8981;:</span></span><br><span class="line">    <span class="comment">//     &#x652F;&#x6301;&#x5BF9;&#x975E;&#x6CDB;&#x578B;&#x96C6;&#x5408;&#x7684;&#x7B80;&#x5355;&#x8FED;&#x4EE3;&#x3002;</span></span><br><span class="line">    [ComVisible(<span class="keyword">true</span>)]</span><br><span class="line">    [Guid(<span class="string">&quot;496B0ABF-CDEE-11d3-88E8-00902754C43A&quot;</span>)]</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">interface</span> <span class="title">IEnumerator</span></span><br><span class="line">    {</span><br><span class="line">        <span class="comment">// &#x6458;&#x8981;:</span></span><br><span class="line">        <span class="comment">//     &#x83B7;&#x53D6;&#x96C6;&#x5408;&#x4E2D;&#x7684;&#x5F53;&#x524D;&#x5143;&#x7D20;&#x3002;</span></span><br><span class="line">        <span class="comment">//</span></span><br><span class="line">        <span class="comment">// &#x8FD4;&#x56DE;&#x7ED3;&#x679C;:</span></span><br><span class="line">        <span class="comment">//     &#x96C6;&#x5408;&#x4E2D;&#x7684;&#x5F53;&#x524D;&#x5143;&#x7D20;&#x3002;</span></span><br><span class="line">        <span class="keyword">object</span> Current { <span class="keyword">get</span>; }</span><br><span class="line">        <span class="comment">// &#x6458;&#x8981;:</span></span><br><span class="line">        <span class="comment">//     &#x5C06;&#x679A;&#x4E3E;&#x6570;&#x63A8;&#x8FDB;&#x5230;&#x96C6;&#x5408;&#x7684;&#x4E0B;&#x4E00;&#x4E2A;&#x5143;&#x7D20;&#x3002;</span></span><br><span class="line">        <span class="comment">//</span></span><br><span class="line">        <span class="comment">// &#x8FD4;&#x56DE;&#x7ED3;&#x679C;:</span></span><br><span class="line">        <span class="comment">//     &#x5982;&#x679C;&#x679A;&#x4E3E;&#x6570;&#x6210;&#x529F;&#x5730;&#x63A8;&#x8FDB;&#x5230;&#x4E0B;&#x4E00;&#x4E2A;&#x5143;&#x7D20;&#xFF0C;&#x5219;&#x4E3A; true&#xFF1B;&#x5982;&#x679C;&#x679A;&#x4E3E;&#x6570;&#x8D8A;&#x8FC7;&#x96C6;&#x5408;&#x7684;&#x7ED3;&#x5C3E;&#xFF0C;&#x5219;&#x4E3A; false&#x3002;</span></span><br><span class="line">        <span class="comment">//</span></span><br><span class="line">        <span class="comment">// &#x5F02;&#x5E38;:</span></span><br><span class="line">        <span class="comment">//   System.InvalidOperationException:</span></span><br><span class="line">        <span class="comment">//     &#x5728;&#x521B;&#x5EFA;&#x4E86;&#x679A;&#x4E3E;&#x6570;&#x540E;&#x96C6;&#x5408;&#x88AB;&#x4FEE;&#x6539;&#x4E86;&#x3002;</span></span><br><span class="line">        <span class="function"><span class="keyword">bool</span> <span class="title">MoveNext</span>(<span class="params"></span>)</span>;</span><br><span class="line">        <span class="comment">//</span></span><br><span class="line">        <span class="comment">// &#x6458;&#x8981;:</span></span><br><span class="line">        <span class="comment">//     &#x5C06;&#x679A;&#x4E3E;&#x6570;&#x8BBE;&#x7F6E;&#x4E3A;&#x5176;&#x521D;&#x59CB;&#x4F4D;&#x7F6E;&#xFF0C;&#x8BE5;&#x4F4D;&#x7F6E;&#x4F4D;&#x4E8E;&#x96C6;&#x5408;&#x4E2D;&#x7B2C;&#x4E00;&#x4E2A;&#x5143;&#x7D20;&#x4E4B;&#x524D;&#x3002;</span></span><br><span class="line">        <span class="comment">//</span></span><br><span class="line">        <span class="comment">// &#x5F02;&#x5E38;:</span></span><br><span class="line">        <span class="comment">//   System.InvalidOperationException:</span></span><br><span class="line">        <span class="comment">//     &#x5728;&#x521B;&#x5EFA;&#x4E86;&#x679A;&#x4E3E;&#x6570;&#x540E;&#x96C6;&#x5408;&#x88AB;&#x4FEE;&#x6539;&#x4E86;&#x3002;</span></span><br><span class="line">        <span class="function"><span class="keyword">void</span> <span class="title">Reset</span>(<span class="params"></span>)</span>;</span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></table></figure>
+<p><strong>&#x4E09;&#x79CD;&#x8FED;&#x4EE3;&#x96C6;&#x5408;&#x7684;&#x65B9;&#x5F0F;</strong></p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Test</span>(<span class="params"></span>)</span><br><span class="line"></span>{</span><br><span class="line">    <span class="keyword">var</span> list = <span class="keyword">new</span> List&lt;<span class="keyword">int</span>&gt; { <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span> };</span><br><span class="line">    <span class="keyword">var</span> en = list.GetEnumerator();</span><br><span class="line">    <span class="keyword">while</span> (en.MoveNext())</span><br><span class="line">    {</span><br><span class="line">        <span class="keyword">int</span> a = en.Current;</span><br><span class="line">    }</span><br><span class="line">    <span class="keyword">foreach</span> (<span class="keyword">var</span> item <span class="keyword">in</span> list)<span class="comment">//</span></span><br><span class="line">    {</span><br><span class="line">        <span class="keyword">int</span> a = item;</span><br><span class="line">    }</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; list.Count; i++)</span><br><span class="line">    {</span><br><span class="line">        <span class="keyword">int</span> a = list[i];</span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></table></figure>
+<p>foreach &#x548C; for &#x90FD;&#x53EF;&#x4EE5;&#x8FED;&#x4EE3;&#x679A;&#x4E3E;&#x96C6;&#x5408;&#x4E2D;&#x7684;&#x5143;&#x7D20;&#x3002;foreach&#x662F;&#x5BF9;&#x8C61;&#x8FED;&#x4EE3;&#x5668;&#xFF0C;&#x8BED;&#x6CD5;&#x66F4;&#x7B80;&#x6D01;&#xFF0C;&#x5B83;&#x8981;&#x6C42;list&#x5B9E;&#x73B0;IEnumerable &#x63A5;&#x53E3;&#x7684;GetEnumerator&#x65B9;&#x6CD5;&#x3002;</p>
+<p><strong>&#x81EA;&#x5B9A;&#x4E49;&#x4E00;&#x4E2A;&#x96C6;&#x5408;&#x7C7B;&#x578B;</strong><br><figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">namespace</span> <span class="title">MyCarIEnumerator</span></span><br><span class="line">{</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">class</span> <span class="title">Garage</span>:<span class="title">IEnumerable</span></span><br><span class="line">    {</span><br><span class="line">        Car[] carArray = <span class="keyword">new</span> Car[<span class="number">4</span>];</span><br><span class="line">        <span class="comment">//&#x542F;&#x52A8;&#x65F6;&#x586B;&#x5145;&#x4E00;&#x4E9B;Car&#x5BF9;&#x8C61;</span></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="title">Garage</span>(<span class="params"></span>)</span><br><span class="line">        </span>{</span><br><span class="line">            carArray[<span class="number">0</span>] = <span class="keyword">new</span> Car(<span class="string">&quot;Rusty&quot;</span>, <span class="number">30</span>);</span><br><span class="line">            carArray[<span class="number">1</span>] = <span class="keyword">new</span> Car(<span class="string">&quot;Clunker&quot;</span>, <span class="number">50</span>);</span><br><span class="line">            carArray[<span class="number">2</span>] = <span class="keyword">new</span> Car(<span class="string">&quot;Zippy&quot;</span>, <span class="number">30</span>);</span><br><span class="line">            carArray[<span class="number">3</span>] = <span class="keyword">new</span> Car(<span class="string">&quot;Fred&quot;</span>, <span class="number">45</span>);</span><br><span class="line">        }</span><br><span class="line">        <span class="function"><span class="keyword">public</span> IEnumerator <span class="title">GetEnumerator</span>(<span class="params"></span>)</span><br><span class="line">        </span>{</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">this</span>.carArray.GetEnumerator();</span><br><span class="line">        }</span><br><span class="line">    }</span><br><span class="line">}</span><br><span class="line"><span class="comment">//&#x4FEE;&#x6539;Garage&#x7C7B;&#x578B;&#x4E4B;&#x540E;&#xFF0C;&#x5C31;&#x53EF;&#x4EE5;&#x5728;C#foreach&#x7ED3;&#x6784;&#x4E2D;&#x5B89;&#x5168;&#x4F7F;&#x7528;&#x8BE5;&#x7C7B;&#x578B;&#x4E86;&#x3002;</span></span><br><span class="line"> </span><br><span class="line"><span class="comment">//&#x9664;&#x6B64;&#x4E4B;&#x5916;&#xFF0C;GetEnumerator()&#x88AB;&#x5B9A;&#x4E49;&#x4E3A;&#x516C;&#x5F00;&#x7684;&#xFF0C;&#x5BF9;&#x8C61;&#x7528;&#x6237;&#x53EF;&#x4EE5;&#x4E0E;IEnumerator&#x7C7B;&#x578B;&#x4EA4;&#x4E92;&#xFF1A;</span></span><br><span class="line"><span class="keyword">namespace</span> <span class="title">MyCarIEnumerator</span></span><br><span class="line">{</span><br><span class="line">    <span class="keyword">class</span> <span class="title">Program</span></span><br><span class="line">    {</span><br><span class="line">        <span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">Main</span>(<span class="params"><span class="keyword">string</span>[] args</span>)</span><br><span class="line">        </span>{</span><br><span class="line">            Console.WriteLine(<span class="string">&quot;*********Fun with IEnumberable/IEnumerator************\n&quot;</span>);</span><br><span class="line">            Garage carLot = <span class="keyword">new</span> Garage();</span><br><span class="line">            <span class="comment">//&#x4EA4;&#x51FA;&#x96C6;&#x5408;&#x4E2D;&#x7684;&#x6BCF;&#x4E00;Car&#x5BF9;&#x8C61;&#x5417;</span></span><br><span class="line">            <span class="keyword">foreach</span> (Car c <span class="keyword">in</span> carLot)  <span class="comment">//&#x4E4B;&#x6240;&#x4EE5;&#x904D;&#x5386;carLot&#xFF0C;&#x662F;&#x56E0;&#x4E3A;carLot.GetEnumerator()&#x8FD4;&#x56DE;&#x7684;&#x9879;&#x65F6;Car&#x7C7B;&#x578B;&#xFF0C;&#x8FD9;&#x4E2A;&#x5341;&#x5206;&#x91CD;&#x8981;</span></span><br><span class="line">            {</span><br><span class="line">                Console.WriteLine(<span class="string">&quot;{0} is going {1} MPH&quot;</span>, c.CarName, c.CurrentSpeed);</span><br><span class="line">            }</span><br><span class="line">            Console.WriteLine(<span class="string">&quot;GetEnumerator&#x88AB;&#x5B9A;&#x4E49;&#x4E3A;&#x516C;&#x5F00;&#x7684;&#xFF0C;&#x5BF9;&#x8C61;&#x7528;&#x6237;&#x53EF;&#x4EE5;&#x4E0E;IEnumerator&#x7C7B;&#x578B;&#x4EA4;&#x4E92;&#xFF0C;&#x4E0B;&#x9762;&#x7684;&#x7ED3;&#x679C;&#x4E0E;&#x4E0A;&#x9762;&#x662F;&#x4E00;&#x81F4;&#x7684;&quot;</span>);</span><br><span class="line">            <span class="comment">//&#x624B;&#x52A8;&#x4E0E;IEnumerator&#x534F;&#x4F5C;</span></span><br><span class="line">            IEnumerator i = carLot.GetEnumerator();</span><br><span class="line">            <span class="keyword">while</span> (i.MoveNext())</span><br><span class="line">            {</span><br><span class="line">                Car myCar = (Car)i.Current;</span><br><span class="line">                Console.WriteLine(<span class="string">&quot;{0} is going {1} MPH&quot;</span>, myCar.CarName, myCar.CurrentSpeed);</span><br><span class="line">            }</span><br><span class="line">            Console.ReadLine();</span><br><span class="line">        }</span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></table></figure></p>
+<p><strong>&#x81EA;&#x5DF1;&#x5B9E;&#x73B0;IEnumerator&#x63A5;&#x53E3;</strong><br><figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">namespace</span> <span class="title">ForeachTestCase</span></span><br><span class="line">{</span><br><span class="line">      <span class="comment">//&#x7EE7;&#x627F;IEnumerable&#x63A5;&#x53E3;&#xFF0C;&#x5176;&#x5B9E;&#x4E5F;&#x53EF;&#x4EE5;&#x4E0D;&#x7EE7;&#x627F;&#x8FD9;&#x4E2A;&#x63A5;&#x53E3;&#xFF0C;&#x53EA;&#x8981;&#x7C7B;&#x91CC;&#x9762;&#x542B;&#x6709;&#x8FD4;&#x56DE;IEnumberator&#x5F15;&#x7528;&#x7684;GetEnumerator()&#x65B9;&#x6CD5;&#x5373;&#x53EF;</span></span><br><span class="line">    <span class="keyword">class</span> <span class="title">ForeachTest</span>:<span class="title">IEnumerable</span>     {</span><br><span class="line">        <span class="keyword">private</span> <span class="keyword">string</span>[] elements;  <span class="comment">//&#x88C5;&#x8F7D;&#x5B57;&#x7B26;&#x4E32;&#x7684;&#x6570;&#x7EC4;</span></span><br><span class="line">        <span class="keyword">private</span> <span class="keyword">int</span> ctr = <span class="number">0</span>;  <span class="comment">//&#x6570;&#x7EC4;&#x7684;&#x4E0B;&#x6807;&#x8BA1;&#x6570;&#x5668;</span></span><br><span class="line">        <span class="comment"><span class="xmlDocTag">///</span> <span class="xmlDocTag">&lt;summary&gt;</span></span></span><br><span class="line">        <span class="comment"><span class="xmlDocTag">///</span> &#x521D;&#x59CB;&#x5316;&#x7684;&#x5B57;&#x7B26;&#x4E32;</span></span><br><span class="line">        <span class="comment"><span class="xmlDocTag">///</span> <span class="xmlDocTag">&lt;/summary&gt;</span></span></span><br><span class="line">        <span class="comment"><span class="xmlDocTag">///</span> <span class="xmlDocTag">&lt;param name=&quot;initialStrings&quot;&gt;</span><span class="xmlDocTag">&lt;/param&gt;</span></span></span><br><span class="line">        ForeachTest(<span class="keyword">params</span> <span class="keyword">string</span>[] initialStrings)</span><br><span class="line">        {</span><br><span class="line">            <span class="comment">//&#x4E3A;&#x5B57;&#x7B26;&#x4E32;&#x5206;&#x914D;&#x5185;&#x5B58;&#x7A7A;&#x95F4;</span></span><br><span class="line">            elements = <span class="keyword">new</span> String[<span class="number">8</span>];</span><br><span class="line">            <span class="comment">//&#x590D;&#x5236;&#x4F20;&#x9012;&#x7ED9;&#x6784;&#x9020;&#x65B9;&#x6CD5;&#x7684;&#x5B57;&#x7B26;&#x4E32;</span></span><br><span class="line">            <span class="keyword">foreach</span> (<span class="keyword">string</span> s <span class="keyword">in</span> initialStrings)</span><br><span class="line">            {</span><br><span class="line">                elements[ctr++] = s;</span><br><span class="line">            }</span><br><span class="line">        }</span><br><span class="line">        <span class="comment"><span class="xmlDocTag">///</span> <span class="xmlDocTag">&lt;summary&gt;</span></span></span><br><span class="line">        <span class="comment"><span class="xmlDocTag">///</span>  &#x6784;&#x9020;&#x51FD;&#x6570;</span></span><br><span class="line">        <span class="comment"><span class="xmlDocTag">///</span> <span class="xmlDocTag">&lt;/summary&gt;</span></span></span><br><span class="line">        <span class="comment"><span class="xmlDocTag">///</span> <span class="xmlDocTag">&lt;param name=&quot;source&quot;&gt;</span>&#x521D;&#x59CB;&#x5316;&#x7684;&#x5B57;&#x7B26;&#x4E32;<span class="xmlDocTag">&lt;/param&gt;</span></span></span><br><span class="line">        <span class="comment"><span class="xmlDocTag">///</span> <span class="xmlDocTag">&lt;param name=&quot;delimiters&quot;&gt;</span>&#x5206;&#x9694;&#x7B26;&#xFF0C;&#x53EF;&#x4EE5;&#x662F;&#x4E00;&#x4E2A;&#x6216;&#x591A;&#x4E2A;&#x5B57;&#x7B26;&#x5206;&#x9694;<span class="xmlDocTag">&lt;/param&gt;</span></span></span><br><span class="line">        ForeachTest(<span class="keyword">string</span> initialStrings, <span class="keyword">char</span>[] delimiters)</span><br><span class="line">        {</span><br><span class="line">            elements = initialStrings.Split(delimiters);</span><br><span class="line">        }</span><br><span class="line">        <span class="comment">//&#x5B9E;&#x73B0;&#x63A5;&#x53E3;&#x4E2D;&#x5F97;&#x65B9;&#x6CD5;</span></span><br><span class="line">        <span class="function"><span class="keyword">public</span> IEnumerator <span class="title">GetEnumerator</span>(<span class="params"></span>)</span><br><span class="line">        </span>{</span><br><span class="line">            <span class="keyword">return</span>  <span class="keyword">new</span> ForeachTestEnumerator(<span class="keyword">this</span>);</span><br><span class="line">        }</span><br><span class="line">        <span class="keyword">private</span> <span class="keyword">class</span> <span class="title">ForeachTestEnumerator</span> : <span class="title">IEnumerator</span></span><br><span class="line">        {</span><br><span class="line">            <span class="keyword">private</span> <span class="keyword">int</span> position = -<span class="number">1</span>;</span><br><span class="line">            <span class="keyword">private</span> ForeachTest t;</span><br><span class="line">            <span class="function"><span class="keyword">public</span> <span class="title">ForeachTestEnumerator</span>(<span class="params">ForeachTest t</span>)</span><br><span class="line">            </span>{</span><br><span class="line">                <span class="keyword">this</span>.t = t;</span><br><span class="line">            }</span><br><span class="line">            <span class="preprocessor">#<span class="keyword">region</span> &#x5B9E;&#x73B0;&#x63A5;&#x53E3;</span></span><br><span class="line">            <span class="keyword">public</span> <span class="keyword">object</span> Current</span><br><span class="line">            {</span><br><span class="line">                <span class="keyword">get</span></span><br><span class="line">                {</span><br><span class="line">                    <span class="keyword">return</span> t.elements[position];</span><br><span class="line">                }</span><br><span class="line">            }</span><br><span class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">bool</span> <span class="title">MoveNext</span>(<span class="params"></span>)</span><br><span class="line">            </span>{</span><br><span class="line">                <span class="keyword">if</span> (position &lt; t.elements.Length - <span class="number">1</span>)</span><br><span class="line">                {</span><br><span class="line">                    position++;</span><br><span class="line">                    <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">                }</span><br><span class="line">                <span class="keyword">else</span></span><br><span class="line">                {</span><br><span class="line">                    <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">                }</span><br><span class="line">            }</span><br><span class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">Reset</span>(<span class="params"></span>)</span><br><span class="line">            </span>{</span><br><span class="line">                position = -<span class="number">1</span>;</span><br><span class="line">            }</span><br><span class="line">            <span class="preprocessor">#<span class="keyword">endregion</span></span></span><br><span class="line">        }</span><br><span class="line">        <span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">Main</span>(<span class="params"><span class="keyword">string</span>[] args</span>)</span><br><span class="line">        </span>{</span><br><span class="line">            <span class="comment">// ForeachTest f = new ForeachTest(&quot;This is a sample sentence.&quot;, new char[] { &apos; &apos;, &apos;-&apos; });</span></span><br><span class="line">            ForeachTest f = <span class="keyword">new</span> ForeachTest(<span class="string">&quot;This&quot;</span>, <span class="string">&quot;is&quot;</span>, <span class="string">&quot;a&quot;</span>, <span class="string">&quot;sample&quot;</span>, <span class="string">&quot;sentence.&quot;</span>);</span><br><span class="line">            <span class="keyword">foreach</span> (<span class="keyword">string</span> item <span class="keyword">in</span> f)</span><br><span class="line">            {</span><br><span class="line">                System.Console.WriteLine(item);</span><br><span class="line">            }</span><br><span class="line">            Console.ReadKey();</span><br><span class="line">        }</span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></table></figure></p>
+<p><strong>&#x901A;&#x8FC7;&#x4EE5;&#x4E0A;&#x4EE3;&#x7801;&#xFF0C;&#x6211;&#x4EEC;&#x77E5;&#x9053;:</strong></p>
+<p>foreach &#x8FED;&#x4EE3;&#x96C6;&#x5408;&#x7684;&#x672C;&#x8D28;&#x8FD8;&#x662F;&#x901A;&#x8FC7;&#x7D22;&#x5F15;&#x7684;&#x65B9;&#x5F0F;&#x3002;&#x901A;&#x8FC7;IEnumerator&#x5305;&#x88C5;&#x4E86;&#x7D22;&#x5F15;&#x8BBF;&#x95EE;&#x4ECE;&#x800C;&#x5B9E;&#x73B0;&#x5BF9;&#x8C61;&#x8BBF;&#x95EE;&#x7684;&#x65B9;&#x5F0F;&#x3002;</p>
+	  
+	</div>
+
+	<div>
+  	<center>
+	<div class="pagination">
+<ul class="pagination">
+	 
+				
+    	<li class="prev"><a href="/2015/08/27/2015-08-27-sql执语句执行顺序/" class="alignleft prev"><i class="fa fa-arrow-circle-o-left"></i>上一页</a></li>
+  		
+
+        <li><a href="/archives"><i class="fa fa-archive"></i>Archive</a></li>
+
+		
+		   <li class="next"><a href="/2015/08/16/2015-08-16-for-foreach/" class="alignright next">下一页<i class="fa fa-arrow-circle-o-right"></i></a></li>         
+        
+	
+</ul>
+</div>
+
+    </center>
+	</div>
+
+    <!-- share -->
+    
+        
+    <div class="bdsharebuttonbox">
+        <a href="#" class="bds_more" data-cmd="more"></a>
+        <a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+        <a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+        <a href="#" class="bds_fbook" data-cmd="fbook" title="分享到Facebook"></a>
+        <a href="#" class="bds_twi" data-cmd="twi" title="分享到Twitter"></a>
+        <a href="#" class="bds_linkedin" data-cmd="linkedin" title="分享到linkedin"></a>
+        <a href="#" class="bds_evernotecn" data-cmd="evernotecn" title="分享到印象笔记"></a>
+        <a href="#" class="bds_youdao" data-cmd="youdao" title="分享到有道云笔记"></a>
+        <a href="#" class="bds_copy" data-cmd="copy" title="分享到复制网址"></a>
+    </div>
+    <script>
+        window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"1","bdSize":"24"},"share":{}};
+        with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+    </script>
+
+
+        
+
+    
+	
+	<!-- comment -->
+	
+<section id="comment">
+  <h2 class="title">留言</h2>
+
+  
+  	 <div class="ds-thread" data-thread-key="2015/08/17/2015-08-17-ienumerator/" data-title="IEnumerator &IEnumerable" data-url="http://bytes1001.github.io/2015/08/17/2015-08-17-ienumerator/"></div>  
+  
+</section>
+
+	</div> <!-- col-md-9/col-md-12 -->
+		
+	
+	<div id="side_meta">
+		<div class="col-md-3" id="post_meta"> 
+
+	<!-- date -->
+	
+	<div class="meta-widget">
+	<i class="fa fa-clock-o"></i>
+	2015-08-17 
+	</div>
+	
+
+	<!-- categories -->
+    
+	<div class="meta-widget">
+	<a data-toggle="collapse" data-target="#categorys"><i class="fa fa-folder"></i></a>	
+    <ul id="categorys" class="tag_box list-unstyled collapse in">
+          
+  <li>
+    <li><a href="/categories/net基础/">.net基础<span>4</span></a></li>
+  </li>
+
+    </ul>
+	</div>
+	
+
+	<!-- tags -->
+	
+	<div class="meta-widget">
+	<a data-toggle="collapse" data-target="#tags"><i class="fa fa-tags"></i></a>		  
+    <ul id="tags" class="tag_box list-unstyled collapse in">	  
+	    
+  <li><a href="/tags/c/">c#<span>3</span></a></li>
+    </ul>
+	</div>
+		
+
+	<!-- toc -->
+	<div class="meta-widget">
+	
+	</div>
+	
+    <hr>
+	
+</div><!-- col-md-3 -->
+
+	</div>
+		
+
+</div><!-- row -->
+
+<script type="text/javascript">
+  var duoshuoQuery = { short_name: 'bytes1001' };
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';
+    ds.async = true;
+    ds.src = 'http://static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+</script>
+
+
+
+	</div>
+  </div>
+  <div class="container-narrow">
+  <footer> <p>
+  &copy; 2016 chaofan.cui
+  
+      coding my life.
+</p> </footer>
+</div> <!-- container-narrow -->
+  
+
+
+  
+<a id="gotop" href="#">   
+  <span>▲</span> 
+</a>
+
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+<script src="/js/main.js"></script>
+<script src="/js/search.js"></script> 
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+
+
+   <script type="text/javascript">      
+     var search_path = "search.xml";
+	 if (search_path.length == 0) {
+	 	search_path = "search.xml";
+	 }
+	 var path = "/" + search_path;
+     searchFunc(path, 'local-search-input', 'local-search-result');
+   </script>
+
+</body>
+   </html>
