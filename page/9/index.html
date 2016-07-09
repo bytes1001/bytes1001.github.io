@@ -131,8 +131,8 @@ var _hmt = _hmt || [];
 	
 	<!-- display as entry -->	
 		<h3 class="title">
-			<div class="date"> 2015-08-14 </div>
-			<div class="article-title"><a href="/2015/08/14/2015-08-06-cat/" >programer</a></div>						
+			<div class="date"> 2015-08-15 </div>
+			<div class="article-title"><a href="/2015/08/15/2015-08-15-dispose/" >Dispose模式</a></div>						
 		</h3>
 	
 
@@ -141,12 +141,18 @@ var _hmt = _hmt || [];
   <div class="row">
 	
 	
-		<p>hi.</p>
-<p><img src="http://bytes.oss-cn-hangzhou.aliyuncs.com/blog%2Fmonkey.jpg" alt="cat"></p>
-
+		<h4 id="&#x6211;&#x4EEC;&#x77E5;&#x9053;&#x5728;&#x6258;&#x7BA1;&#x4EE3;&#x7801;&#x91CC;&#x8C03;&#x7528;&#x975E;&#x6258;&#x7BA1;&#x8D44;&#x6E90;&#x65F6;&#xFF0C;&#x9700;&#x8981;&#x663E;&#x5F0F;&#x91CA;&#x653E;&#x975E;&#x6258;&#x7BA1;&#x8D44;&#x6E90;">&#x6211;&#x4EEC;&#x77E5;&#x9053;&#x5728;&#x6258;&#x7BA1;&#x4EE3;&#x7801;&#x91CC;&#x8C03;&#x7528;&#x975E;&#x6258;&#x7BA1;&#x8D44;&#x6E90;&#x65F6;&#xFF0C;&#x9700;&#x8981;&#x663E;&#x5F0F;&#x91CA;&#x653E;&#x975E;&#x6258;&#x7BA1;&#x8D44;&#x6E90;</h4><p>&#x6709;&#x4E24;&#x79CD;&#x65B9;&#x5F0F;&#xFF1A;</p>
+<p><strong>1.&#x4E3B;&#x52A8;&#x91CA;&#x653E;</strong>&#xFF08;<em>&#x8C03;&#x7528;&#x8005;&#x8C03;&#x7528;dispose</em>&#xFF09;</p>
+<p>&#x4F18;&#x70B9;&#xFF1A;&#x6548;&#x7387;&#x9AD8;&#xFF0C;&#x8D44;&#x6E90;&#x91CA;&#x653E;&#x5FEB;&#x3002;<br>&#x7F3A;&#x70B9;&#xFF1A;&#x8C03;&#x7528;&#x8005;&#x53EF;&#x80FD;&#x5FD8;&#x8BB0;&#x8C03;&#x7528;dispose&#x65B9;&#x6CD5;&#xFF0C;&#x9020;&#x6210;&#x8D44;&#x6E90;&#x6CA1;&#x6709;&#x91CA;&#x653E;</p>
+<p><strong>2.&#x88AB;&#x52A8;&#x91CA;&#x653E;</strong>&#xFF08;<em>&#x6790;&#x6784;&#x51FD;&#x6570;&#x91CC;dispose</em>&#xFF09;</p>
+<p>&#x4F18;&#x70B9;&#xFF1A;&#x5373;&#x4F7F;&#x8C03;&#x7528;&#x8005;&#x6CA1;&#x6709;&#x8C03;&#x7528;dispose&#x65B9;&#x6CD5;&#xFF0C;&#x8D44;&#x6E90;&#x4E5F;&#x4F1A;&#x5728;GC&#x7684;&#x65F6;&#x5019;dispose<br>&#x7F3A;&#x70B9;&#xFF1A;&#x6548;&#x7387;&#x4F4E;&#xFF0C;&#x4E0D;&#x77E5;&#x9053;GC&#x4EC0;&#x4E48;&#x65F6;&#x5019;&#x8FDB;&#x884C;&#xFF0C;&#x800C;&#x4E14;&#x8FD9;&#x79CD;&#x65B9;&#x5F0F;&#x4E5F;&#x589E;&#x52A0;&#x4E86;GC&#x7684;&#x8D1F;&#x62C5;</p>
+<p>&#x5FAE;&#x8F6F;&#x7684;.net&#x56E2;&#x961F;&#x7ED9;&#x51FA;&#x4E86;&#x8D44;&#x6E90;&#x91CA;&#x653E;&#x7684;Dispose&#x6A21;&#x5F0F;&#xFF0C;&#x517C;&#x987E;&#x4E86;&#x7C7B;&#x578B;&#x5B89;&#x5168;&#x6027;&#x4E0E;&#x6267;&#x884C;&#x6548;&#x7387;&#x3002;</p>
+<p>&#x4E0B;&#x9762;&#x662F;&#x6211;&#x5199;&#x7684;dispose&#x6A21;&#x5F0F;&#x5177;&#x4F53;&#x4F8B;&#x5B50;&#xFF0C;</p>
+<p>MyResourceWrapper&#x7C7B;&#x578B;&#x8C03;&#x7528;win api&#x5411;&#x5916;&#x90E8;&#x66B4;&#x9732;Graphics&#x3002;</p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">using</span> System;</span><br><span class="line"><span class="keyword">using</span> System.Collections.Generic;</span><br><span class="line"><span class="keyword">using</span> System.Drawing;</span><br><span class="line"><span class="keyword">using</span> System.Linq;</span><br><span class="line"><span class="keyword">using</span> System.Text;</span><br><span class="line"><span class="keyword">namespace</span> <span class="title">GC</span></span><br><span class="line">{</span><br><span class="line">    <span class="comment"><span class="xmlDocTag">///</span> <span class="xmlDocTag">&lt;summary&gt;</span></span></span><br><span class="line">    <span class="comment"><span class="xmlDocTag">///</span> &#x8FD9;&#x4E2A;&#x7C7B;&#x5305;&#x88C5;&#x4E86;&#x975E;&#x6258;&#x7BA1;&#x8D44;&#x6E90;&#x3002;</span></span><br><span class="line">    <span class="comment"><span class="xmlDocTag">///</span> <span class="xmlDocTag">&lt;/summary&gt;</span></span></span><br><span class="line">  <span class="keyword">public</span>  <span class="keyword">class</span> <span class="title">MyResourceWrapper</span>:<span class="title">IDisposable</span></span><br><span class="line">    {</span><br><span class="line">        <span class="keyword">private</span> IntPtr handle;<span class="comment">//&#x53E5;&#x67C4;,&#x975E;&#x6258;&#x7BA1;&#x8D44;&#x6E90;</span></span><br><span class="line">        <span class="keyword">public</span> Graphics Graphics</span><br><span class="line">        {</span><br><span class="line">            <span class="keyword">get</span></span><br><span class="line">            {</span><br><span class="line">                <span class="keyword">return</span> Graphics.FromHdc(handle);</span><br><span class="line">            }</span><br><span class="line">        }</span><br><span class="line">        <span class="keyword">private</span> <span class="keyword">bool</span> disposed = <span class="keyword">false</span>;</span><br><span class="line"> </span><br><span class="line">        MyResourceWrapper()</span><br><span class="line">        {</span><br><span class="line">            handle = GetDC(IntPtr.Zero);</span><br><span class="line">        }</span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">Dispose</span>(<span class="params"></span>)</span><br><span class="line">        </span>{</span><br><span class="line">            CleanUp(<span class="keyword">true</span>);<span class="comment">//&#x91CA;&#x653E;&#x8D44;&#x6E90;</span></span><br><span class="line">            System.GC.SuppressFinalize(<span class="keyword">this</span>);</span><br><span class="line">        }</span><br><span class="line">        <span class="comment">//&#x6790;&#x6784;&#x65B9;&#x6CD5;&#x5E94;&#x8BE5;&#x53EA;&#x91CA;&#x653E;&#x975E;&#x6258;&#x7BA1;&#x8D44;&#x6E90;&#x3002;&#x4E0D;&#x8981;&#x91CA;&#x653E;&#x6258;&#x7BA1;&#x8D44;&#x6E90;&#x3002;</span></span><br><span class="line">        <span class="comment">//&#x56E0;&#x4E3A;GC&#x56DE;&#x6536;&#x65F6;&#xFF0C;&#x6709;&#x53EF;&#x80FD;&#x6258;&#x7BA1;&#x7C7B;&#x578B;&#x5DF2;&#x7ECF;&#x88AB;&#x91CA;&#x653E;&#x6389;&#x3002;&#x4F1A;&#x5BFC;&#x81F4;&#x629B;&#x5F02;&#x5E38;&#x3002;</span></span><br><span class="line">        <span class="comment">//&#x5B9A;&#x4E49;&#x6790;&#x6784;&#x51FD;&#x6570;&#x4F1A;&#x5BFC;&#x81F4;&#x81F3;&#x5C11;&#x4E24;&#x6B21;&#x5783;&#x573E;&#x56DE;&#x6536;&#xFF0C;&#x6548;&#x80FD;&#x4F4E;&#x4E0B;&#x3002;</span></span><br><span class="line">        ~MyResourceWrapper()</span><br><span class="line">        {</span><br><span class="line">            CleanUp(<span class="keyword">false</span>);</span><br><span class="line">        }</span><br><span class="line">      <span class="comment"><span class="xmlDocTag">///</span> <span class="xmlDocTag">&lt;summary&gt;</span></span></span><br><span class="line">      <span class="comment"><span class="xmlDocTag">///</span></span></span><br><span class="line">      <span class="comment"><span class="xmlDocTag">///</span> <span class="xmlDocTag">&lt;/summary&gt;</span></span></span><br><span class="line">      <span class="comment"><span class="xmlDocTag">///</span> <span class="xmlDocTag">&lt;param name=&quot;flag&quot;&gt;</span>&#x6807;&#x8BC6;&#x6E05;&#x7406;&#x6258;&#x7BA1;&#x8D44;&#x6E90;&#x8FD8;&#x662F;&#x975E;&#x6258;&#x7BA1;&#x8D44;&#x6E90;<span class="xmlDocTag">&lt;/param&gt;</span></span></span><br><span class="line">        <span class="function"><span class="keyword">void</span> <span class="title">CleanUp</span>(<span class="params"><span class="keyword">bool</span> flag</span>)</span><br><span class="line">        </span>{</span><br><span class="line">            <span class="keyword">if</span> (!<span class="keyword">this</span>.disposed)</span><br><span class="line">            {</span><br><span class="line">                <span class="keyword">if</span> (flag)</span><br><span class="line">                {</span><br><span class="line">                    <span class="comment">//&#x91CA;&#x653E;&#x6258;&#x7BA1;&#x8D44;&#x6E90;</span></span><br><span class="line">                    Console.WriteLine(<span class="string">&quot;&#x6210;&#x529F;&#x91CA;&#x653E;&#x975E;&#x6258;&#x7BA1;&#x8D44;&#x6E90;&#xFF01;&quot;</span>);</span><br><span class="line">                }</span><br><span class="line">                <span class="comment">//&#x91CA;&#x653E;&#x975E;&#x6258;&#x7BA1;&#x8D44;&#x6E90;</span></span><br><span class="line">                ReleaseDC(IntPtr.Zero,handle);</span><br><span class="line">                Console.WriteLine(<span class="string">&quot;&#x6210;&#x529F;&#x91CA;&#x653E;&#x6258;&#x7BA1;&#x8D44;&#x6E90;&#xFF01;&quot;</span>);</span><br><span class="line">            }</span><br><span class="line">            disposed = <span class="keyword">true</span>;<span class="comment">//&#x5DF2;&#x7ECF;&#x6E05;&#x7406;</span></span><br><span class="line">        }</span><br><span class="line">      <span class="comment"><span class="xmlDocTag">///</span> <span class="xmlDocTag">&lt;summary&gt;</span></span></span><br><span class="line">      <span class="comment"><span class="xmlDocTag">///</span> &#x76EE;&#x7684;&#x5728;&#x4E8E;&#x8BF4;&#x660E;&#x8FD9;&#x4E2A;&#x7C7B;&#x7684;&#x9AD8;&#x6548;&#x7387;Dispose&#x6A21;&#x5F0F;&#x3002;</span></span><br><span class="line">      <span class="comment"><span class="xmlDocTag">///</span> <span class="xmlDocTag">&lt;/summary&gt;</span></span></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">Test</span>(<span class="params"></span>) </span>{</span><br><span class="line">            <span class="keyword">using</span> (<span class="keyword">var</span> re=<span class="keyword">new</span> MyResourceWrapper())</span><br><span class="line">            {</span><br><span class="line">                re.Graphics.DrawEllipse(<span class="keyword">new</span> Pen(Color.Red),<span class="number">100</span>,<span class="number">100</span>,<span class="number">300</span>,<span class="number">300</span>);</span><br><span class="line">            }</span><br><span class="line">         </span><br><span class="line">        }</span><br><span class="line">      <span class="comment"><span class="xmlDocTag">///</span> <span class="xmlDocTag">&lt;summary&gt;</span></span></span><br><span class="line">      <span class="comment"><span class="xmlDocTag">///</span> &#x76EE;&#x7684;&#x5728;&#x4E8E;&#x8BF4;&#x660E;&#x5F00;&#x53D1;&#x8005;&#x5FD8;&#x8BB0;&#x53BB;&#x8C03;&#x7528;dispose&#x65B9;&#x6CD5;&#x91CA;&#x653E;&#x8D44;&#x6E90;&#x4E86;&#x3002;</span></span><br><span class="line">      <span class="comment"><span class="xmlDocTag">///</span> <span class="xmlDocTag">&lt;/summary&gt;</span></span></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">TestFinalize</span>(<span class="params"></span>)</span><br><span class="line">        </span>{</span><br><span class="line">            <span class="keyword">var</span> re = <span class="keyword">new</span> MyResourceWrapper();</span><br><span class="line">            re.Graphics.DrawEllipse(<span class="keyword">new</span> Pen(Color.Red), <span class="number">100</span>, <span class="number">100</span>, <span class="number">300</span>, <span class="number">300</span>);</span><br><span class="line">            re = <span class="keyword">null</span>;</span><br><span class="line">            System.GC.Collect();</span><br><span class="line">            System.GC.WaitForPendingFinalizers();</span><br><span class="line">        }</span><br><span class="line">        [System.Runtime.InteropServices.DllImport(<span class="string">&quot;User32.dll&quot;</span>)]</span><br><span class="line">         <span class="function"><span class="keyword">static</span> <span class="keyword">extern</span> IntPtr <span class="title">GetDC</span>(<span class="params">IntPtr Hwnd</span>)</span>;</span><br><span class="line"> </span><br><span class="line">        [System.Runtime.InteropServices.DllImport(<span class="string">&quot;User32.dll&quot;</span>)]</span><br><span class="line">         <span class="function"><span class="keyword">static</span>  <span class="keyword">extern</span> <span class="keyword">int</span> <span class="title">ReleaseDC</span>(<span class="params">IntPtr hWnd, IntPtr hDC</span>)</span>;</span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></table></figure>
 	
 	</div>
-  <a type="button" href="/2015/08/14/2015-08-06-cat/#more" class="btn btn-default more">阅读此文</a>
+  <a type="button" href="/2015/08/15/2015-08-15-dispose/#more" class="btn btn-default more">阅读此文</a>
 </div>
 
 		
@@ -166,7 +172,7 @@ var _hmt = _hmt || [];
         <li><a href="/"><i class="fa fa-home"></i>Home</a></li>
 
 		
-          <li class="next disabled"><a>下一页<i class="fa fa-arrow-circle-o-right"></i></a></li>
+		   <li class="next"> <a href="/page/10/" class="alignright next">下一页<i class="fa fa-arrow-circle-o-right"></i></a> </li>          
         
 	
 </ul>
@@ -217,19 +223,21 @@ var _hmt = _hmt || [];
 		<h4>标签云</h4>
 		<ul class="tag_box inline list-unstyled">		
 		
-			<li><a href="/tags/GC/">GC<span>1</span></a></li>
-		
 			<li><a href="/tags/c/">c#<span>3</span></a></li>
 		
-			<li><a href="/tags/随笔/">随笔<span>1</span></a></li>
+			<li><a href="/tags/GC/">GC<span>1</span></a></li>
+		
+			<li><a href="/tags/闭包/">闭包<span>1</span></a></li>
+		
+			<li><a href="/tags/IL/">IL<span>1</span></a></li>
 		
 			<li><a href="/tags/习惯/">习惯<span>1</span></a></li>
 		
 			<li><a href="/tags/sql/">sql<span>1</span></a></li>
 		
-			<li><a href="/tags/闭包/">闭包<span>1</span></a></li>
+			<li><a href="/tags/net基础/">.net基础<span>1</span></a></li>
 		
-			<li><a href="/tags/IL/">IL<span>1</span></a></li>
+			<li><a href="/tags/随笔/">随笔<span>1</span></a></li>
 		
 		 
 		</ul>
@@ -241,6 +249,10 @@ var _hmt = _hmt || [];
 <div class="widget">
   <h4>最新文章</h4>
   <ul class="entry list-unstyled">
+    
+      <li>
+        <a href="/2016/07/10/c-转义字符/" ><i class="fa fa-file-o"></i>c#转义字符...</a>
+      </li>
     
       <li>
         <a href="/2016/05/23/逆变协变/" ><i class="fa fa-file-o"></i>逆变协变...</a>
@@ -256,10 +268,6 @@ var _hmt = _hmt || [];
     
       <li>
         <a href="/2015/08/28/2015-08-28-10xdeveloper/" ><i class="fa fa-file-o"></i>10个习惯和10倍开发效率...</a>
-      </li>
-    
-      <li>
-        <a href="/2015/08/27/2015-08-27-sql执语句执行顺序/" ><i class="fa fa-file-o"></i>sql语句执行顺序...</a>
       </li>
     
   </ul>
