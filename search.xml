@@ -4,17 +4,10 @@
   
     
     <entry>
-      <title><![CDATA[c#转义字符]]></title>
+      <title><![CDATA[转义字符]]></title>
       <url>http://bytes1001.github.io/2016/07/10/c-%E8%BD%AC%E4%B9%89%E5%AD%97%E7%AC%A6/</url>
-      <content type="html"><![CDATA[<p><strong><strong>C#&#x8F6C;&#x4E49;&#x5B57;&#x7B26;</strong></strong></p>
-<p>\&#x2019; &#x5355;&#x5F15;&#x53F7;<br>\&#x201D; &#x53CC;&#x5F15;&#x53F7;&#x3000;&#x3000;<br>\ &#x53CD;&#x659C;&#x6760;<br>\0 &#x7A7A;<br>\a &#x8B66;&#x544A;&#xFF08;&#x4EA7;&#x751F;&#x5CF0;&#x9E23;&#xFF09;<br>\b &#x9000;&#x683C;<br>\f &#x6362;&#x9875;<br>\n &#x6362;&#x884C;<br>\r &#x56DE;&#x8F66;<br>\t &#x6C34;&#x5E73;&#x5236;&#x8868;&#x7B26;<br>\v &#x5782;&#x76F4;&#x5236;&#x8868;&#x7B26;</p>
-<p>JS&#x8F6C;&#x4E49;&#x5B57;&#x7B26;<br>&#x8F6C;&#x4E49;&#x5E8F;&#x5217;    &#x5B57;&#x7B26;<br>\b    &#x9000;&#x683C;<br>\f    &#x8D70;&#x7EB8;&#x6362;&#x9875;<br>\n    &#x6362;&#x884C;<br>\r    &#x56DE;&#x8F66;<br>\t    &#x6A2A;&#x5411;&#x8DF3;&#x683C; (Ctrl-I)<br>\&#x2019;    &#x5355;&#x5F15;&#x53F7;<br>\&#x201D;    &#x53CC;&#x5F15;&#x53F7;<br>\    &#x53CD;&#x659C;&#x6760;<br>HTML&#x8F6C;&#x4E49;&#x5B57;&#x7B26;<br>&#x663E;&#x793A;    &#x8BF4;&#x660E;    &#x5B9E;&#x4F53;&#x540D;&#x79F0;    &#x5B9E;&#x4F53;&#x7F16;&#x53F7;</p>
-<p>&#x534A;&#x65B9;&#x5927;&#x7684;&#x7A7A;&#x767D;    &#x2002;    &#x2002;</p>
-<p>&#x5168;&#x65B9;&#x5927;&#x7684;&#x7A7A;&#x767D;    &#x2003;    &#x2003;</p>
-<p>&#x4E0D;&#x65AD;&#x884C;&#x7684;&#x7A7A;&#x767D;&#x683C;    &#xA0;    &#xA0;<br>&lt;    &#x5C0F;&#x4E8E;    &lt;    &lt;</p>
-<blockquote>
-<p>   &#x5927;&#x4E8E;    &gt;    &gt;<br>&amp;    &amp;&#x7B26;&#x53F7;    &amp;    &amp;<br>&#x201C;    &#x53CC;&#x5F15;&#x53F7;    &quot;    &quot;<br>&#xA9;    &#x7248;&#x6743;    &#xA9;    &#xA9;<br>&#xAE;    &#x5DF2;&#x6CE8;&#x518C;&#x5546;&#x6807;    &#xAE;    &#xAE;<br>&#x2122;    &#x5546;&#x6807;&#xFF08;&#x7F8E;&#x56FD;&#xFF09;    &#x2122;    &#x2122;<br>&#xD7;    &#x4E58;&#x53F7;    &#xD7;    &#xD7;<br>&#xF7;    &#x9664;&#x53F7;    &#xF7;    &#xF7;<br>C#, JS, HTML - &#x8F6C;&#x4E49;&#x5B57;&#x7B26;</p>
-</blockquote>
+      <content type="html"><![CDATA[<h4 id="C#&#x8F6C;&#x4E49;&#x5B57;&#x7B26;">C#&#x8F6C;&#x4E49;&#x5B57;&#x7B26;</h4><p>\&#x2019; &#x5355;&#x5F15;&#x53F7;<br>\&#x201D; &#x53CC;&#x5F15;&#x53F7;&#x3000;&#x3000;<br>\ &#x53CD;&#x659C;&#x6760;<br>\0 &#x7A7A;<br>\a &#x8B66;&#x544A;&#xFF08;&#x4EA7;&#x751F;&#x5CF0;&#x9E23;&#xFF09;<br>\b &#x9000;&#x683C;<br>\f &#x6362;&#x9875;<br>\n &#x6362;&#x884C;<br>\r &#x56DE;&#x8F66;<br>\t &#x6C34;&#x5E73;&#x5236;&#x8868;&#x7B26;<br>\v &#x5782;&#x76F4;&#x5236;&#x8868;&#x7B26;</p>
+<h4 id="JS&#x8F6C;&#x4E49;&#x5B57;&#x7B26;">JS&#x8F6C;&#x4E49;&#x5B57;&#x7B26;</h4><p>&#x8F6C;&#x4E49;&#x5E8F;&#x5217;    &#x5B57;&#x7B26;<br>\b    &#x9000;&#x683C;<br>\f    &#x8D70;&#x7EB8;&#x6362;&#x9875;<br>\n    &#x6362;&#x884C;<br>\r    &#x56DE;&#x8F66;<br>\t    &#x6A2A;&#x5411;&#x8DF3;&#x683C; (Ctrl-I)<br>\&#x2019;    &#x5355;&#x5F15;&#x53F7;<br>\&#x201D;    &#x53CC;&#x5F15;&#x53F7;<br>\    &#x53CD;&#x659C;&#x6760;</p>
 ]]></content>
     </entry>
     
